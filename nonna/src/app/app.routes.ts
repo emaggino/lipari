@@ -5,8 +5,8 @@ import { PdpComponent } from './components/pdp/pdp.component';
 import { ListComponent } from './components/list/list.component';
 
 export const routes: Routes = [
-    {path: '' , component: LoginComponent},
-    {path: 'homepage' , component: HomepageComponent},
+    {path: '' , component: HomepageComponent},
+    {path: 'login' , component: LoginComponent},
     {path: 'pdp' , component: PdpComponent},
     {path: 'list' , component: ListComponent},
 ];
