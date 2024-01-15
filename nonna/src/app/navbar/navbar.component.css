@@ -1,7 +1,7 @@
 .navbar {
     height: 70px;
     width: auto;
-    background-color: aliceblue;
+    background-color: rgb(64, 101, 133);
 }
 
 .navbar > div {
@@ -16,8 +16,8 @@
 
 .btn {
     margin-right: 20px;
-    background-color: lightgray;
-    color: aqua;
+    background-color: lightcoral;
+    color: #00ffff;
     text-decoration: none;
 }
 
