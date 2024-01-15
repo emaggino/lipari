@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [MatFormFieldModule],
+  imports: [MatFormFieldModule, RouterModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
