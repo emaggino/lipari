@@ -33,9 +33,9 @@
             <!-- <button class="btn" routerLink="/login" mat-button>
         Back
       </button> -->
-            <button class="btn" routerLink="/pdp" mat-button>View More</button>
+            <button class="btn" [routerLink]="['/pdp', card.id]" mat-button>View More</button>
             <button *ngIf="isLogged === true" class="btn" mat-button>Edit</button>
-            <button *ngIf="isLogged === true" class="btn" mat-button>Delete</button>
+            <button *ngIf="isLogged === false" class="btn" mat-button>Delete</button>
           </mat-card-actions>
         </mat-card>
       </li>

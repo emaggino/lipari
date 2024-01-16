@@ -8,7 +8,7 @@ import { EditComponent } from './components/edit/edit.component';
 export const routes: Routes = [
     {path: '' , component: ListComponent},
     {path: 'login' , component: LoginComponent},
-    {path: 'pdp' , component: PdpComponent},
+    {path: 'pdp/:id' , component: PdpComponent},
     {path: 'home' , component: HomepageComponent},
     {path: 'edit' , component: EditComponent}
 ];
