@@ -16,8 +16,9 @@
 
 .btn {
     margin-right: 20px;
-    background-color: lightcoral;
+    background-color: aliceblue;
     text-decoration: none;
+    color: rgb(64, 101, 133);
 }
 
 .title {

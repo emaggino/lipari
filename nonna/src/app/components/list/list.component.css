@@ -7,16 +7,30 @@
   flex-direction: column;
 }
 
-.listContainer{
+.cardContainer{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  max-width: 1500px;
+  
+}
+
+.text {
+  width: 300px;
+  color: aliceblue;
+}
+
+.cardContainer > li {
+  list-style-type: none;
+  height: 500px;
 }
 
 .card {
-  max-width: 400px;
+  max-width: 300px;
   margin: 10px;
+  background-color: rgba(64, 101, 133, 0.812);
+  color: aliceblue;
 }
 
 .input{

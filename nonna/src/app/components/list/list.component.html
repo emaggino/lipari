@@ -1,16 +1,16 @@
 <div class="container">
   <div class="inputContainer">
     <mat-form-field class="input">
-    <input matInput placeholder="Cerca" type="text" [(ngModel)]="value" />
-    @if (value) {
-    <button matSuffix mat-icon-button aria-label="Clear" (click)="value = ''">
-      <mat-icon>close</mat-icon>
-    </button>
-    }
-  </mat-form-field>
+      <input matInput placeholder="Cerca" type="text" [(ngModel)]="value" />
+      @if (value) {
+      <button matSuffix mat-icon-button aria-label="Clear" (click)="value = ''">
+        <mat-icon>close</mat-icon>
+      </button>
+      }
+    </mat-form-field>
   </div>
-  <div class="listContainer">
-    <ul>
+  <ul>
+    <div class="cardContainer">
       <li *ngFor="let card of mockCard">
         <mat-card class="card">
           <mat-card-header>
@@ -23,10 +23,12 @@
             src="https://media.istockphoto.com/id/1081422898/it/foto/anatra-fritta-in-padella.jpg?s=2048x2048&w=is&k=20&c=4qKbocpCjpv__a1K_lVJuismTk1uzN1ntI0GDAmWOak="
             alt="recipe pic"
           />
-          <mat-card-content>
-            <p><span>Descrizione:</span> {{ card.description }}</p>
-            <p><span>Procedimento:</span> {{ card.cocking }}</p>
-          </mat-card-content>
+          <div class="text">
+            <mat-card-content>
+              <p><span>Descrizione:</span> {{ card.description }}</p>
+              <p><span>Procedimento:</span> {{ card.cocking }}</p>
+            </mat-card-content>
+          </div>
           <mat-card-actions>
             <!-- <button class="btn" routerLink="/login" mat-button>
         Back
@@ -35,6 +37,6 @@
           </mat-card-actions>
         </mat-card>
       </li>
-    </ul>
-  </div>
+    </div>
+  </ul>
 </div>
