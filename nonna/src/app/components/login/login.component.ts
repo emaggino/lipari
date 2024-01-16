@@ -13,14 +13,12 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  email = new FormControl('', [Validators.required, Validators.email])
-  hide = true
+  userValue = ''
+  passValue = ''
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
+  checkIfEmpty() {
+    if(this.userValue === '' || this.passValue === '') {
+      console.log('not');
     }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 }

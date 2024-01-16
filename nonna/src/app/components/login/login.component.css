@@ -33,4 +33,5 @@
   .btn > button {
     background-color: lightgrey;
     border-radius: 10%;
+    margin: 10px;
   }
