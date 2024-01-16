@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 
 @Injectable({
   providedIn: 'root',
@@ -6,6 +7,9 @@ import { Injectable } from '@angular/core';
 export class ListService {
   constructor() {}
 
+  pageSize = 5
+  pageChanged = new EventEmitter<PageEvent>()
+  
   mockCard = [
     {
       title: 'Roast Beef',
@@ -43,5 +47,8 @@ export class ListService {
       id: 4,
       image: 'https://media.gettyimages.com/id/98841227/it/foto/fruit-salad.jpg?s=612x612&w=gi&k=20&c=C82SgZVGFGSiYVZDxwGGkpT0GsP8qfCWiLGWRYEhGsw='
     },
+    
   ];
+
+  totalItems = this.mockCard.length
 }

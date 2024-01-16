@@ -10,7 +10,7 @@
     </mat-form-field>
   </div>
   <ul>
-    <div class="cardContainer">
+    <div id="ozi" class="cardContainer">
       <li *ngFor="let card of mockCard">
         <mat-card class="card">
           <mat-card-header>
@@ -43,4 +43,5 @@
       </li>
     </div>
   </ul>
+  <mat-paginator [length]="totalItems" [pageSize]="pageSize" (page)="onPageChange($event)"></mat-paginator>
 </div>

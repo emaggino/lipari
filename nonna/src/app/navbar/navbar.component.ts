@@ -17,11 +17,11 @@ export class NavbarComponent {
 
   }
 
-  isLogged = this.loginService.user.isLogged
+  isLogged = this.loginService.isLogged
 
   logOut() {
-    this.loginService.user.isLogged = false
-    console.log(this.loginService.user.isLogged);
+    this.loginService.isLogged = false
+    console.log(this.loginService.isLogged);
   }
 
 }

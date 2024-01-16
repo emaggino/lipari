@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Route, Router, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { LoginService } from '../../services/login.service';
 import { NgIf } from '@angular/common';
@@ -15,11 +15,15 @@ import { NgIf } from '@angular/common';
 })
 export class LoginComponent {
 
-  constructor(private loginService: LoginService) {
+  constructor(
+    private route : Router,
+    private loginService: LoginService,
+    private router: ActivatedRoute
+    ) {
 
   }
 
-  isLogged = this.loginService.user.isLogged
+  isLogged = this.loginService.isLogged
 
   userValue: any;
   passValue: any;
@@ -34,15 +38,20 @@ export class LoginComponent {
   // }
 
   checkInput() {
-    if (this.userValue === '' || this.passValue === '') {
-      return alert('inserisci qualcosa');
-    } else if (this.userValue === 'admin' || this.passValue === 'admin') {
-      this.loginService.user.isLogged = true;
+    if (this.userValue === 'admin' || this.passValue === 'admin') {
+      alert('sei Loggato!')
+      //this.route.navigate(['/pdp'])
+      this.loginService.isLogged = true;
+
     } else {
-      return alert('credenziali non corrette')
+      alert('credenziali non corrette')
     }
-    console.log(this.loginService.user.isLogged);
+    console.log(this.loginService.isLogged);
   }
+
+  // navigate() {
+  //   this.route.navigate(['pdp'], {relativeTo: this.router})
+  // }
 
 
 }

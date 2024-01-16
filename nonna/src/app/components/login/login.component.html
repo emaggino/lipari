@@ -1,21 +1,36 @@
 <div class="container">
   <div class="container2">
-  <mat-form-field>
-    <p>Enter your username</p>
-    <input [(ngModel)]="userValue" type="text" matInput placeholder="username" required />
-  </mat-form-field>
-</div>
-<div class="container2">
-  <mat-form-field>
-    <p>Enter your password:</p>
-    <input [(ngModel)]="passValue" type="password" placeholder="password" />
-    <div class="btn">
-      <button mat-button routerLink="/" color="primary">Back</button>
-      <button *ngIf="isLogged === false" (click)="checkInput()" mat-button color="primary">Confirm</button>
-      <button *ngIf="isLogged === true" mat-button color="primary">home</button>
-    </div>
+    <mat-form-field>
+      <p>Enter your username</p>
+      <input
+        [(ngModel)]="userValue"
+        type="text"
+        matInput
+        placeholder="username"
+        required
+      />
+    </mat-form-field>
+  </div>
+  <div class="container2">
+    <mat-form-field>
+      <p>Enter your password:</p>
+      <input [(ngModel)]="passValue" type="password" placeholder="password" />
+      <div class="btn">
+        <button mat-button routerLink="/" color="primary">Back</button>
 
-  </mat-form-field>
-</div>
-</div>
+        <button
+          *ngIf="!isLogged"
+          (click)="checkInput()"
+          mat-button
+          color="primary"
+        >
+          Confirm
+        </button>
 
+        <!-- <ng-template #notLogged>
+          <button mat-button color="primary"></button>
+        </ng-template> -->
+      </div>
+    </mat-form-field>
+  </div>
+</div>
