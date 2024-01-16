@@ -19,3 +19,8 @@
     height: 300px;
     font-size: 20px;
 }
+
+.btn {
+    background-color: rgb(64, 101, 133);
+    color: aliceblue;
+}

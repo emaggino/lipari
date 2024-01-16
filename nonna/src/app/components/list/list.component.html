@@ -1,32 +1,40 @@
-<div>
-  <mat-card class="card">
-    <mat-card-header>
-      <div mat-card-avatar class="header-image"></div>
-      <mat-card-title>Roast-Beef</mat-card-title>
-      <mat-card-subtitle>Second Dish</mat-card-subtitle>
-    </mat-card-header>
-    <img
-      mat-card-image
-      src="https://media.istockphoto.com/id/1081422898/it/foto/anatra-fritta-in-padella.jpg?s=2048x2048&w=is&k=20&c=4qKbocpCjpv__a1K_lVJuismTk1uzN1ntI0GDAmWOak="
-      alt="Photo of a Shiba Inu"
-    />
-    <mat-card-content>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-        cupiditate unde neque, laudantium, quas sequi harum natus facere
-        deleniti officia sit corrupti adipisci a at suscipit maxime. Officia,
-        totam laboriosam delectus in maiores unde cum inventore. Ipsam
-        cupiditate itaque voluptates, ratione dignissimos veritatis aut facere
-        quisquam pariatur neque cum earum!
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button routerLink="/login" mat-button>
+<div class="container">
+  <div class="inputContainer">
+    <mat-form-field class="input">
+    <input matInput placeholder="Cerca" type="text" [(ngModel)]="value" />
+    @if (value) {
+    <button matSuffix mat-icon-button aria-label="Clear" (click)="value = ''">
+      <mat-icon>close</mat-icon>
+    </button>
+    }
+  </mat-form-field>
+  </div>
+  <div class="listContainer">
+    <ul>
+      <li *ngFor="let card of mockCard">
+        <mat-card class="card">
+          <mat-card-header>
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-title>{{ card.title }}</mat-card-title>
+            <mat-card-subtitle>{{ card.tipe }}</mat-card-subtitle>
+          </mat-card-header>
+          <img
+            mat-card-image
+            src="https://media.istockphoto.com/id/1081422898/it/foto/anatra-fritta-in-padella.jpg?s=2048x2048&w=is&k=20&c=4qKbocpCjpv__a1K_lVJuismTk1uzN1ntI0GDAmWOak="
+            alt="recipe pic"
+          />
+          <mat-card-content>
+            <p><span>Descrizione:</span> {{ card.description }}</p>
+            <p><span>Procedimento:</span> {{ card.cocking }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <!-- <button class="btn" routerLink="/login" mat-button>
         Back
-      </button>
-      <button routerLink="/pdp" mat-button>
-        View More
-      </button>
-    </mat-card-actions>
-  </mat-card>
+      </button> -->
+            <button class="btn" routerLink="/pdp" mat-button>View More</button>
+          </mat-card-actions>
+        </mat-card>
+      </li>
+    </ul>
+  </div>
 </div>
