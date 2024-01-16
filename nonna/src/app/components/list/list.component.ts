@@ -26,43 +26,13 @@ import { LoginService } from '../../services/login.service';
   styleUrl: './list.component.css',
 })
 export class ListComponent {
-  value: string = '';
-
   constructor(
     private listService: ListService,
     private loginService: LoginService
   ) {}
 
-  isLogged = this.loginService.user.isLogged
+  value: string = '';
+  isLogged = this.loginService.user.isLogged;
 
-  mockCard = [
-    {
-      title: 'Roast Beef',
-      tipe: 'Secondo Piatto',
-      cocking: 'Procedimento',
-      description: 'Descrizione',
-      id: 1,
-    },
-    {
-      title: 'Riso allo zafferano',
-      tipe: 'Primo Piatto',
-      cocking: 'Procedimento',
-      description: 'Descrizione',
-      id: 2,
-    },
-    {
-      title: 'Tiramisu',
-      tipe: 'Dolce',
-      cocking: 'Procedimento',
-      description: 'Descrizione',
-      id: 3,
-    },
-    {
-      title: 'Macedonia',
-      tipe: 'Frutta',
-      cocking: 'Procedimento',
-      description: 'Descrizione',
-      id: 4,
-    },
-  ];
+  mockCard = this.listService.mockCard;
 }

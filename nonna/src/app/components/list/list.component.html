@@ -18,14 +18,10 @@
             <mat-card-title>{{ card.title }}</mat-card-title>
             <mat-card-subtitle>{{ card.tipe }}</mat-card-subtitle>
           </mat-card-header>
-          <img
-            mat-card-image
-            src="https://media.istockphoto.com/id/1081422898/it/foto/anatra-fritta-in-padella.jpg?s=2048x2048&w=is&k=20&c=4qKbocpCjpv__a1K_lVJuismTk1uzN1ntI0GDAmWOak="
-            alt="recipe pic"
-          />
+          <img mat-card-image src="{{ card.image }}" alt="recipe pic" />
           <div class="text">
             <mat-card-content>
-              <p><span>Descrizione:</span> {{ card.description }}</p>
+              <p><span>Difficoltà:</span> {{ card.difficolta }}</p>
               <p><span>Procedimento:</span> {{ card.cocking }}</p>
             </mat-card-content>
           </div>
@@ -33,9 +29,15 @@
             <!-- <button class="btn" routerLink="/login" mat-button>
         Back
       </button> -->
-            <button class="btn" [routerLink]="['/pdp', card.id]" mat-button>View More</button>
-            <button *ngIf="isLogged === true" class="btn" mat-button>Edit</button>
-            <button *ngIf="isLogged === false" class="btn" mat-button>Delete</button>
+            <button class="btn" [routerLink]="['/pdp', card.id]" mat-button>
+              View More
+            </button>
+            <button *ngIf="isLogged === true" class="btn" mat-button>
+              Edit
+            </button>
+            <button *ngIf="isLogged === true" class="btn" mat-button>
+              Delete
+            </button>
           </mat-card-actions>
         </mat-card>
       </li>
