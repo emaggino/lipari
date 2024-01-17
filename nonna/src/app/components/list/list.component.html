@@ -11,7 +11,7 @@
   </div>
   <ul>
     <div id="ozi" class="cardContainer">
-      <li *ngFor="let card of mockCard">
+      <li *ngFor="let card of mockCard; let i = index">
         <mat-card class="card">
           <mat-card-header>
             <div mat-card-avatar class="header-image"></div>
@@ -38,7 +38,7 @@
               </button>
             </div>
             <div *ngIf="isLogged">
-              <button (click)="delete()" class="btn" mat-button>Delete</button>
+              <button (click)="mockCard.splice(i, 1)" class="btn" mat-button>Delete</button>
             </div>
           </mat-card-actions>
         </mat-card>

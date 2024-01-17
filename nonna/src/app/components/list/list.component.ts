@@ -53,14 +53,14 @@ export class ListComponent {
 
   element = document.getElementById('ozi');
 
-  delete() {
-    for (let card of this.mockCard) {
-      if (this.mockCard.length > 1) {
-        this.mockCard.splice(card.id, card.id);
-      } else {
-        alert('non puoi rimuovere questo elemento, aggiungine prima uno nuovo!');
-      }
-    }
-    console.log('item removed');
-  }
+  // delete() {
+  //   for () {
+  //     if (this.mockCard.length > 1) {
+  //       this.mockCard.splice(card.id);
+  //     } else {
+  //       alert('non puoi rimuovere questo elemento, aggiungine prima uno nuovo!');
+  //     }
+  //   }
+  //   console.log('item removed');
+  // }
 }
