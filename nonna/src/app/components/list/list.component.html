@@ -22,7 +22,7 @@
           <div class="text">
             <mat-card-content>
               <p><span>Difficoltà:</span> {{ card.difficolta }}</p>
-              <p><span>Procedimento:</span> {{ card.cocking }}</p>
+              <p><span>Valutazione:</span> {{ card.valutazione }}</p>
             </mat-card-content>
           </div>
           <mat-card-actions>
@@ -32,16 +32,22 @@
             <button class="btn" [routerLink]="['/pdp', card.id]" mat-button>
               View More
             </button>
-            <button *ngIf="isLogged === true" class="btn" mat-button>
-              Edit
-            </button>
-            <button *ngIf="isLogged === true" class="btn" mat-button>
-              Delete
-            </button>
+            <div *ngIf="isLogged">
+              <button class="btn" mat-button>
+                Edit
+              </button>
+            </div>
+            <div *ngIf="isLogged">
+              <button (click)="delete()" class="btn" mat-button>Delete</button>
+            </div>
           </mat-card-actions>
         </mat-card>
       </li>
     </div>
   </ul>
-  <mat-paginator [length]="totalItems" [pageSize]="pageSize" (page)="onPageChange($event)"></mat-paginator>
+  <mat-paginator
+    [length]="totalItems"
+    [pageSize]="pageSize"
+    (page)="onPageChange($event)"
+  ></mat-paginator>
 </div>

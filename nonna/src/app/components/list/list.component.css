@@ -7,14 +7,12 @@
   flex-direction: column;
 }
 
-
-.cardContainer{
+.cardContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   max-width: 1500px;
-  
 }
 
 .text {
@@ -34,12 +32,12 @@
   color: aliceblue;
 }
 
-.input{
+.input {
   width: 400px;
 }
 
 .header-image {
-  background-image: url('https://yt3.googleusercontent.com/jOXpwaAw_5kOooNikWmuHiNC2buSdgeuZTkPJpxTFdrVZE8AQegxus3hQNLnoqP4iT4hZoGj=s900-c-k-c0x00ffffff-no-rj');
+  background-image: url("https://yt3.googleusercontent.com/jOXpwaAw_5kOooNikWmuHiNC2buSdgeuZTkPJpxTFdrVZE8AQegxus3hQNLnoqP4iT4hZoGj=s900-c-k-c0x00ffffff-no-rj");
   background-size: cover;
 }
 

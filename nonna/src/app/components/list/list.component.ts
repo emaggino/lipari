@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { ListService } from '../../services/list.service';
 import { NgFor, NgIf } from '@angular/common';
 import { LoginService } from '../../services/login.service';
-import { MatPaginatorModule, PageEvent } from '@angular/material/paginator'
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 
 @Component({
@@ -35,11 +35,11 @@ export class ListComponent {
     private loginService: LoginService
   ) {}
 
-  totalItems = this.listService.totalItems
-  pageSize = this.listService.pageSize
+  totalItems = this.listService.totalItems;
+  pageSize = this.listService.pageSize;
 
-  onPageChange (event: PageEvent) {
-    this.listService.pageChanged.emit(event)
+  onPageChange(event: PageEvent) {
+    this.listService.pageChanged.emit(event);
 
     const startIndex = event.pageIndex * event.pageSize;
     const endIndex = startIndex + event.pageSize;
@@ -51,9 +51,16 @@ export class ListComponent {
 
   mockCard = this.listService.mockCard;
 
-  element = document.getElementById('ozi')
+  element = document.getElementById('ozi');
 
   delete() {
-    this.element?.remove()
+    for (let card of this.mockCard) {
+      if (this.mockCard.length > 1) {
+        this.mockCard.splice(card.id, card.id);
+      } else {
+        alert('non puoi rimuovere questo elemento, aggiungine prima uno nuovo!');
+      }
+    }
+    console.log('item removed');
   }
 }

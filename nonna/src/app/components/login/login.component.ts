@@ -9,21 +9,24 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [MatFormFieldModule, RouterModule, MatButtonModule, FormsModule, NgIf],
+  imports: [
+    MatFormFieldModule,
+    RouterModule,
+    MatButtonModule,
+    FormsModule,
+    NgIf,
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-
   constructor(
-    private route : Router,
+    private route: Router,
     private loginService: LoginService,
     private router: ActivatedRoute
-    ) {
+  ) {}
 
-  }
-
-  isLogged = this.loginService.isLogged
+  isLogged = this.loginService.isLogged;
 
   userValue: any;
   passValue: any;
@@ -38,13 +41,12 @@ export class LoginComponent {
   // }
 
   checkInput() {
-    if (this.userValue === 'admin' || this.passValue === 'admin') {
-      alert('sei Loggato!')
+    if (this.userValue === 'admin' && this.passValue === 'admin') {
+      alert('sei Loggato!');
       //this.route.navigate(['/pdp'])
       this.loginService.isLogged = true;
-
     } else {
-      alert('credenziali non corrette')
+      alert('credenziali non corrette');
     }
     console.log(this.loginService.isLogged);
   }
@@ -52,6 +54,4 @@ export class LoginComponent {
   // navigate() {
   //   this.route.navigate(['pdp'], {relativeTo: this.router})
   // }
-
-
 }

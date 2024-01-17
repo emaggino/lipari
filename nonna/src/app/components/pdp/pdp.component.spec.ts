@@ -8,10 +8,9 @@ describe('PdpComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PdpComponent]
-    })
-    .compileComponents();
-    
+      imports: [PdpComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(PdpComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
