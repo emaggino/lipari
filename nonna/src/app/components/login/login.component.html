@@ -17,10 +17,9 @@
       <input [(ngModel)]="passValue" type="password" placeholder="password" />
       <div class="btn">
         <button mat-button routerLink="/" color="primary">Back</button>
-
         <button
           *ngIf="isLogged"
-          (click)="toggleLogin()"
+          (click)="checkInput()"
           mat-button
           color="primary"
         >

@@ -55,11 +55,6 @@ export class TipiComponent implements OnInit {
     const currentPageData = this.tipoPiatto.slice(startIndex, endIndex);
   }
 
-  mockPrimi = this.listService.mockPrimi
-  mockSecondi = this.listService.mockSecondi
-  mockDolci = this.listService.mockDolci
-  mockFrutta = this.listService.mockFrutta
-
   value: string = '';
   isLogged = this.loginService.isLogged;
 

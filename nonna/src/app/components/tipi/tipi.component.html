@@ -10,49 +10,54 @@
     </mat-form-field>
   </div>
   <ul>
-    <div id="ozi" class="cardContainer">
-      <li *ngFor="let tipo of mockFrutta; let i = index">
-        <mat-card class="card">
-          <mat-card-header>
-            <div mat-card-avatar class="header-image"></div>
-            <mat-card-title>{{ tipo.title }}</mat-card-title>
-            <mat-card-subtitle>{{ tipo.tipe }}</mat-card-subtitle>
-          </mat-card-header>
-          <img class="img" mat-card-image src="{{ tipo.image }}" alt="recipe pic" />
-          <div class="text">
-            <mat-card-content>
-              <p><span>Difficoltà:</span> {{ tipo.difficolta }}</p>
-              <p><span>Valutazione:</span> {{ tipo.valutazione }}</p>
-            </mat-card-content>
-          </div>
-          <mat-card-actions>
-            <!-- <button class="btn" routerLink="/login" mat-button>
+    <div *ngFor="let tipo of tipoPiatto">
+      <div *ngIf="tipo.dolci" id="ozi" class="cardContainer">
+        <li *ngFor="let spec of tipo.dolci; let i = index">
+          <mat-card class="card">
+            <mat-card-header>
+              <div mat-card-avatar class="header-image"></div>
+              <mat-card-title>{{ spec.title }}</mat-card-title>
+              <mat-card-subtitle>{{ spec.tipe }}</mat-card-subtitle>
+            </mat-card-header>
+            <img
+              class="img"
+              mat-card-image
+              src="{{ spec.image }}"
+              alt="recipe pic"
+            />
+            <div class="text">
+              <mat-card-content>
+                <p><span>Difficoltà:</span> {{ spec.difficolta }}</p>
+                <p><span>Valutazione:</span> {{ spec.valutazione }}</p>
+              </mat-card-content>
+            </div>
+            <mat-card-actions>
+              <!-- <button class="btn" routerLink="/login" mat-button>
           Back
         </button> -->
-            <div class="buttonContainer">
-              <button class="btn" [routerLink]="['/pdp', tipo.id]" mat-button>
-                Dettaglio
-              </button>
-              <button class="btn" routerLink="/" mat-button>
-                Back
-              </button>
-              <div *ngIf="isLogged">
-                <button id="editBtn" class="btn" mat-button>Edit</button>
-              </div>
-              <div *ngIf="isLogged">
-                <button
-                  id="deleteBtn"
-                  (click)="tipoPiatto.splice(i, 1)"
-                  class="btn"
-                  mat-button
-                >
-                  Delete
+              <div *ngFor="let tipo of tipoPiatto" class="buttonContainer">
+                <button class="btn" [routerLink]="['/pdp', spec.id]" mat-button>
+                  Dettaglio
                 </button>
+                <!-- <button class="btn" routerLink="/" mat-button>Back</button> -->
+                <div *ngIf="!isLogged">
+                  <button id="editBtn" class="btn" mat-button>Edit</button>
+                </div>
+                <div *ngIf="!isLogged">
+                  <button
+                    id="deleteBtn"
+                    (click)="tipo.dolci.splice(i, 1)"
+                    class="btn"
+                    mat-button
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
-            </div>
-          </mat-card-actions>
-        </mat-card>
-      </li>
+            </mat-card-actions>
+          </mat-card>
+        </li>
+      </div>
     </div>
   </ul>
   <mat-paginator

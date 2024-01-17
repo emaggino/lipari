@@ -1,10 +1,12 @@
 
 
-<div *ngFor="let tipo of mockPrimi" class="container">
-  <div class="img">{{tipo.image}}</div>
-  <div class="info" *ngFor="let tipo of mockSecondi">
-    {{tipo.description}}
+<div *ngFor="let tipo of tipoPiatto" class="container">
+  <div *ngFor="let spec of tipo.primi">
+  <div class="info">
+    {{spec.description}}
   </div>
+  </div>
+  
 </div>
 
 
