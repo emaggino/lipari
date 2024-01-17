@@ -20,5 +20,5 @@ export class PdpComponent {
     private listService: ListService
   ) {}
 
-  mockCard = this.listService.mockCard;
+  tipoPiatto = this.listService.tipoPortata;
 }

@@ -11,26 +11,26 @@
   </div>
   <ul>
     <div id="ozi" class="cardContainer">
-      <li *ngFor="let card of mockCard; let i = index">
+      <li *ngFor="let tipo of tipoPiatto; let i = index">
         <mat-card class="card">
           <mat-card-header>
             <div mat-card-avatar class="header-image"></div>
-            <mat-card-title>{{ card.title }}</mat-card-title>
-            <mat-card-subtitle>{{ card.tipe }}</mat-card-subtitle>
+            <mat-card-title>{{ tipo.titolo }}</mat-card-title>
+            <mat-card-subtitle>{{ tipo.tipo }}</mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image src="{{ card.image }}" alt="recipe pic" />
+          <img mat-card-image src="{{ tipo.image }}" alt="recipe pic" />
           <div class="text">
             <mat-card-content>
-              <p><span>Difficoltà:</span> {{ card.difficolta }}</p>
-              <p><span>Valutazione:</span> {{ card.valutazione }}</p>
+              <p><span>Difficoltà:</span> {{ tipo.difficolta }}</p>
+              <p><span>Valutazione:</span> {{ tipo.valutazione }}</p>
             </mat-card-content>
           </div>
           <mat-card-actions>
             <!-- <button class="btn" routerLink="/login" mat-button>
         Back
       </button> -->
-            <button class="btn" [routerLink]="['/pdp', card.id]" mat-button>
-              View More
+            <button class="btn" [routerLink]="['/tipi', tipo.tipo]" mat-button>
+              Vedi tutti ({{tipo.tipo}}) 
             </button>
             <div *ngIf="isLogged">
               <button class="btn" mat-button>
@@ -38,7 +38,7 @@
               </button>
             </div>
             <div *ngIf="isLogged">
-              <button (click)="mockCard.splice(i, 1)" class="btn" mat-button>Delete</button>
+              <button (click)="tipoPiatto.splice(i, 1)" class="btn" mat-button>Delete</button>
             </div>
           </mat-card-actions>
         </mat-card>

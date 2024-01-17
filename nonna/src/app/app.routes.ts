@@ -4,11 +4,13 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { PdpComponent } from './components/pdp/pdp.component';
 import { ListComponent } from './components/list/list.component';
 import { EditComponent } from './components/edit/edit.component';
+import { TipiComponent } from './components/tipi/tipi.component';
 
 export const routes: Routes = [
     {path: '' , component: ListComponent},
     {path: 'login' , component: LoginComponent},
     {path: 'pdp/:id' , component: PdpComponent},
     {path: 'home' , component: HomepageComponent},
-    {path: 'edit' , component: EditComponent}
+    {path: 'edit' , component: EditComponent},
+    {path: 'tipi/:tipo', component: TipiComponent}
 ];

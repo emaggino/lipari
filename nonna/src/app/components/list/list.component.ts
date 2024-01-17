@@ -43,13 +43,13 @@ export class ListComponent {
 
     const startIndex = event.pageIndex * event.pageSize;
     const endIndex = startIndex + event.pageSize;
-    const currentPageData = this.mockCard.slice(startIndex, endIndex);
+    const currentPageData = this.tipoPiatto.slice(startIndex, endIndex);
   }
 
   value: string = '';
   isLogged = this.loginService.isLogged;
 
-  mockCard = this.listService.mockCard;
+  tipoPiatto = this.listService.tipoPortata;
 
   element = document.getElementById('ozi');
 
