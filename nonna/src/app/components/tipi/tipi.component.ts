@@ -47,8 +47,8 @@ export class TipiComponent {
   }
 
   mockPrimi = this.listService.mockPrimi
-  mockSecondi = this.listService.mockDolci
-  mockDolci = this.listService.mockSecondi
+  mockSecondi = this.listService.mockSecondi
+  mockDolci = this.listService.mockDolci
   mockFrutta = this.listService.mockFrutta
 
   value: string = '';

@@ -1,11 +1,11 @@
 <div class="container">
   <div class="img"></div>
-  <div class="info">
+  <div class="info" *ngFor="let tipo of mockSecondi">
     <ul>
-      <li *ngFor="let card of tipoPiatto"></li>
+      <li ></li>
     </ul>
     <mat-card-actions>
-      <button class="btn" routerLink="/" mat-button>Back</button>
+      <button class="btn" [routerLink]="['/tipi', tipo.id]" mat-button>Back</button>
     </mat-card-actions>
   </div>
 </div>

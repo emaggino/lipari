@@ -19,8 +19,8 @@
         <button mat-button routerLink="/" color="primary">Back</button>
 
         <button
-          *ngIf="!isLogged"
-          (click)="checkInput()"
+          *ngIf="isLogged"
+          (click)="toggleLogin()"
           mat-button
           color="primary"
         >

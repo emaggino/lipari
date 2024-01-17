@@ -8,6 +8,7 @@ import { ListComponent } from './components/list/list.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatFormFieldModule,
     NavbarComponent,
     MatSidenavModule,
+    FooterComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

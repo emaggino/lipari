@@ -20,14 +20,24 @@ import { NgIf } from '@angular/common';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+  isLogged 
   constructor(
     private route: Router,
     private loginService: LoginService,
     private router: ActivatedRoute
-  ) {}
+    ) {
+      this.isLogged = this.loginService.loginTrack
+    }
 
-  isLogged = this.loginService.isLogged;
+    get isUserLogged() : boolean {
+      return this.loginService.isLogged
+    }
 
+    toggleLogin(){
+      this.loginService.toggleLoginVisibility()
+      alert(this.isLogged);
+    }
+  
   userValue: any;
   passValue: any;
 

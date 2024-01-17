@@ -20,5 +20,10 @@ export class PdpComponent {
     private listService: ListService
   ) {}
 
+  mockPrimi = this.listService.mockPrimi
+  mockSecondi = this.listService.mockSecondi
+  mockDolci = this.listService.mockDolci
+  mockFrutta = this.listService.mockFrutta
+
   tipoPiatto = this.listService.tipoPortata;
 }

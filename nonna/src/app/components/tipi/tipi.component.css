@@ -35,6 +35,10 @@
   .input {
     width: 400px;
   }
+
+  .img {
+    height: 200px;
+  }
   
   .header-image {
     background-image: url("https://yt3.googleusercontent.com/jOXpwaAw_5kOooNikWmuHiNC2buSdgeuZTkPJpxTFdrVZE8AQegxus3hQNLnoqP4iT4hZoGj=s900-c-k-c0x00ffffff-no-rj");

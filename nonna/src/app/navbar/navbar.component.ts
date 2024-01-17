@@ -12,12 +12,14 @@ import { LoginService } from '../services/login.service';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-
+  isLogged: any
   constructor(private loginService: LoginService) {
 
-  }
+  } 
 
-  isLogged = this.loginService.isLogged
+  get isUserLogged() : boolean {
+    return this.loginService.isLogged
+  }
 
   logOut() {
     this.loginService.isLogged = false

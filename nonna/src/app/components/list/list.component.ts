@@ -10,6 +10,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { LoginService } from '../../services/login.service';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-list',
@@ -25,6 +26,7 @@ import { MatTableModule } from '@angular/material/table';
     MatTableModule,
     NgFor,
     NgIf,
+    FooterComponent
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',

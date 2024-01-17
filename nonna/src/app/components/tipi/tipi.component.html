@@ -11,14 +11,14 @@
   </div>
   <ul>
     <div id="ozi" class="cardContainer">
-      <li *ngFor="let tipo of tipoPiatto; let i = index">
+      <li *ngFor="let tipo of mockFrutta; let i = index">
         <mat-card class="card">
           <mat-card-header>
             <div mat-card-avatar class="header-image"></div>
-            <mat-card-title>{{ tipo.titolo }}</mat-card-title>
-            <mat-card-subtitle>{{ tipo.tipo }}</mat-card-subtitle>
+            <mat-card-title>{{ tipo.title }}</mat-card-title>
+            <mat-card-subtitle>{{ tipo.tipe }}</mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image src="{{ tipo.image }}" alt="recipe pic" />
+          <img class="img" mat-card-image src="{{ tipo.image }}" alt="recipe pic" />
           <div class="text">
             <mat-card-content>
               <p><span>Difficoltà:</span> {{ tipo.difficolta }}</p>
@@ -30,6 +30,9 @@
           Back
         </button> -->
             <div class="buttonContainer">
+              <button class="btn" [routerLink]="['/pdp', tipo.id]" mat-button>
+                Dettaglio
+              </button>
               <div *ngIf="isLogged">
                 <button id="editBtn" class="btn" mat-button>Edit</button>
               </div>
