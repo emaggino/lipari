@@ -10,27 +10,32 @@
     </mat-form-field>
   </div>
   <ul>
-    <div id="ozi" class="cardContainer">
-      <li *ngFor="let tipo of tipoPiatto; let i = index">
+    <div *ngFor="let tipo of tipoPiatto; let i = index" id="ozi" class="cardContainer">
+      <li *ngFor="let spec of tipo.tipo; let i = index">
         <mat-card class="card">
           <mat-card-header>
             <div mat-card-avatar class="header-image"></div>
-            <mat-card-title>{{ tipo.titolo }}</mat-card-title>
-            <mat-card-subtitle>{{ tipo.tipo }}</mat-card-subtitle>
+            <mat-card-title>{{ spec.titolo }}</mat-card-title>
+            <mat-card-subtitle>{{ spec.tipo }}</mat-card-subtitle>
           </mat-card-header>
-          <img class="img" mat-card-image src="{{ tipo.image }}" alt="recipe pic" />
+          <img
+            class="img"
+            mat-card-image
+            src="{{ spec.image }}"
+            alt="recipe pic"
+          />
           <div class="text">
             <mat-card-content>
-              <p><span>Difficoltà:</span> {{ tipo.difficolta }}</p>
-              <p><span>Valutazione:</span> {{ tipo.valutazione }}</p>
+              <p><span>Difficoltà:</span> {{ spec.difficolta }}</p>
+              <p><span>Valutazione:</span> {{ spec.valutazione }}</p>
             </mat-card-content>
           </div>
           <mat-card-actions>
             <!-- <button class="btn" routerLink="/login" mat-button>
         Back
       </button> -->
-            <button class="btn" [routerLink]="['/tipi', tipo.tipo]" mat-button>
-              Vedi tutti ({{tipo.tipo}}) 
+            <button class="btn" [routerLink]="['/tipi', spec.tipo]" mat-button>
+              Vedi tutti ({{ spec.tipo }})
             </button>
           </mat-card-actions>
         </mat-card>

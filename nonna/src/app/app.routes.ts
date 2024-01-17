@@ -12,5 +12,5 @@ export const routes: Routes = [
     {path: 'pdp/:id' , component: PdpComponent},
     {path: 'home' , component: HomepageComponent},
     {path: 'edit' , component: EditComponent},
-    {path: 'tipi/:tipo', component: TipiComponent}
+    {path: 'tipi/:typeId', component: TipiComponent}
 ];

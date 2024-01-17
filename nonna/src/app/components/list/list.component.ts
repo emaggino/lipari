@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { ListService } from '../../services/list.service';
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf, NgSwitch } from '@angular/common';
 import { LoginService } from '../../services/login.service';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
@@ -26,16 +26,24 @@ import { FooterComponent } from '../footer/footer.component';
     MatTableModule,
     NgFor,
     NgIf,
+    NgSwitch,
     FooterComponent
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
   constructor(
     private listService: ListService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private activeRoute: ActivatedRoute
   ) {}
+
+  
+ngOnInit(): void {
+    
+}
+  
 
   totalItems = this.listService.totalItems;
   pageSize = this.listService.pageSize;
@@ -65,4 +73,6 @@ export class ListComponent {
   //   }
   //   console.log('item removed');
   // }
+
+  
 }

@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
@@ -10,6 +10,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { LoginService } from '../../services/login.service';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { TipiService } from '../../tipi.service';
 
 @Component({
   selector: 'app-tipi',
@@ -29,14 +30,22 @@ import { MatTableModule } from '@angular/material/table';
   templateUrl: './tipi.component.html',
   styleUrl: './tipi.component.css',
 })
-export class TipiComponent {
+export class TipiComponent implements OnInit {
   constructor(
     private listService: ListService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private activeRoute : ActivatedRoute,
+    private typeService : TipiService
   ) {}
 
   totalItems = this.listService.totalItems;
   pageSize = this.listService.pageSize;
+
+  ngOnInit(): void {
+    let typeId = this.activeRoute.snapshot.paramMap.get('typeId')
+    console.warn(typeId)
+    typeId && this.typeService.getRecipe(typeId)
+  }
 
   onPageChange(event: PageEvent) {
     this.listService.pageChanged.emit(event);

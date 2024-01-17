@@ -1,11 +1,17 @@
-<div class="container">
-  <div class="img"></div>
+
+
+<div *ngFor="let tipo of mockPrimi" class="container">
+  <div class="img">{{tipo.image}}</div>
   <div class="info" *ngFor="let tipo of mockSecondi">
-    <ul>
-      <li ></li>
-    </ul>
-    <mat-card-actions>
-      <button class="btn" [routerLink]="['/tipi', tipo.id]" mat-button>Back</button>
-    </mat-card-actions>
+    {{tipo.description}}
   </div>
 </div>
+
+
+
+
+
+
+<!-- <mat-card-actions>
+      <button class="btn" [routerLink]="['/tipi', tipo.id]" mat-button>Back</button>
+    </mat-card-actions> -->
