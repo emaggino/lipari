@@ -20,6 +20,10 @@
   color: aliceblue;
 }
 
+.img {
+  height: 200px;
+}
+
 .cardContainer > li {
   list-style-type: none;
   height: 500px;
