@@ -1,12 +1,22 @@
 
 
-<div *ngFor="let tipo of tipoPiatto" class="container">
-  <div *ngFor="let spec of tipo.primi">
-  <div class="info">
-    {{spec.description}}
+<div class="container">
+  <div>
+    <p class="img">Immagine</p>
   </div>
+  <div class="infoContainer">
+    <div class="description">
+      <p>
+        Le seadas sono uno dei simboli della cucina sarda, dolce storico della gastronomia regionale: sono preparate con un impasto di semola (i Sardi sono maestri nel suo utilizzo), prevedono un ripieno preparato apposta con un pecorino fresco, sciolto e “formato” apposta per l'utilizzo, e si completano con il miele, spesso di corbezzolo, un'altra delle tipicità dell'isola. 
+      Nel Campidano, a differenza che nel Nuorese, il ripieno si prepara con una caciotta vaccina, che viene poi profumata con scorza di limone grattugiata. La frittura delle seadas può avvenire in olio di arachide o anche nello strutto che, del resto, è presente nell'impasto, con lo scopo di renderlo friabile. 
+      Ma si dice seada o seadas? Il nome, che pare avere origine dal sardo su seu, grasso, cioè lo strutto che si utilizza per la preparazione della pasta, nasce al singolare, seada o sebada. Con la notorietà, però, è subentrato l'uso di utilizzare questo nome sempre al plurale. 
+      Le seadas sono nate dalla civiltà pastorale sarda non tanto come dolce, quanto come un sostanzioso piatto unico, molto semplice, preparato con gli ingredienti a disposizione nelle dispense, lavorati con la maestria tipica delle massaie sarde, in grado di realizzare con la semola di grano duro autentici capolavori come anche il pane carasau.
+      </p>
+    </div>
+    <div>
+      <button class="btn" [routerLink]="['/tipi']" mat-button>Back</button>
+    </div>
   </div>
-  
 </div>
 
 
@@ -15,5 +25,5 @@
 
 
 <!-- <mat-card-actions>
-      <button class="btn" [routerLink]="['/tipi', tipo.id]" mat-button>Back</button>
+      
     </mat-card-actions> -->

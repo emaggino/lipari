@@ -1,4 +1,4 @@
-.container {
+/* .container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,4 +25,33 @@
 .btn {
   background-color: rgb(64, 101, 133);
   color: aliceblue;
+} */
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.img {
+  background-color: blue;
+}
+
+.infoContainer {
+  margin: -10px
+}
+
+.description {
+  width: 600px;
+}
+
+.description > p {
+  font-size: large;
+  font-style: italic;
+}
+
+.btn {
+  color: aliceblue;
+  background-color: rgb(64, 101, 133);
 }
