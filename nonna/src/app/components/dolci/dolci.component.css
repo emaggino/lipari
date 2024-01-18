@@ -59,6 +59,7 @@
     margin: 10px;
     background-color: rgb(64, 101, 133);
     color: aliceblue;
+    width: 100px;
   }
 
   #editBtn {
