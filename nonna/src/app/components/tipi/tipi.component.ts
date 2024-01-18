@@ -34,6 +34,7 @@ export class TipiComponent implements OnInit {
   constructor(
     private listService: ListService,
     private loginService: LoginService,
+    private tipiService: TipiService,
     private activeRoute : ActivatedRoute,
     private typeService : TipiService
   ) {}
@@ -42,9 +43,9 @@ export class TipiComponent implements OnInit {
   pageSize = this.listService.pageSize;
 
   ngOnInit(): void {
-    let typeId = this.activeRoute.snapshot.paramMap.get('typeId')
-    console.warn(typeId)
-    typeId && this.typeService.getRecipe(typeId)
+    // let typeId = this.activeRoute.snapshot.paramMap.get('typeId')
+    // console.warn(typeId)
+    // typeId && this.typeService.getRecipe(typeId)
   }
 
   onPageChange(event: PageEvent) {
@@ -58,7 +59,7 @@ export class TipiComponent implements OnInit {
   value: string = '';
   isLogged = this.loginService.isLogged;
 
-  tipoPiatto = this.listService.tipoPortata;
+  tipoPiatto = this.tipiService.mockPrimi;
 
   element = document.getElementById('ozi');
 
