@@ -59,8 +59,8 @@
   .btn {
     width: fit-content;
     margin: 10px;
-    background-color: rgb(64, 101, 133);
-    color: aliceblue;
+    background-color: aliceblue;
+    color: rgb(64, 101, 133);
   }
 
   .btnBack {
@@ -74,10 +74,12 @@
 
   #editBtn {
     background-color: rgba(158, 158, 26, 0.989);
+    color: aliceblue;
   }
 
   #deleteBtn {
     background-color: rgb(194, 46, 46);
+    color: aliceblue;
   }
 
   

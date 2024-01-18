@@ -32,10 +32,13 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-image: url("https://media.istockphoto.com/id/1081422898/it/foto/anatra-fritta-in-padella.jpg?s=2048x2048&w=is&k=20&c=4qKbocpCjpv__a1K_lVJuismTk1uzN1ntI0GDAmWOak=");
+  background-size: cover;
 }
 
 .imageContainer {
-  
+  background-color: rgba(64, 101, 133, 0.918);
+  border-radius: 4%;
 }
 
 .imageContainer > img {
@@ -49,11 +52,22 @@
 
 .description {
   width: 600px;
+  background-color: rgba(64, 101, 133, 0.873);
+  color: aliceblue;
+  border-radius: 4%;
 }
 
 .description > p {
   font-size: large;
   font-style: italic;
+  padding: 10px;
+}
+
+.description > h2 {
+  font-size: large;
+  font-style: italic;
+  padding-left: 10px;
+  padding-top: 20px;
 }
 
 .description > h1 {
