@@ -11,7 +11,6 @@ import { LoginService } from '../../services/login.service';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { TipiService } from '../../tipi.service';
-import { SecondiService } from '../../services/secondi.service';
 import { DolciService } from '../../services/dolci.service';
 
 @Component({

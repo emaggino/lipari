@@ -61,6 +61,14 @@
     color: aliceblue;
   }
 
+  .btnBack {
+    width: fit-content;
+    margin: 10px;
+    background-color: rgb(64, 101, 133);
+    color: aliceblue;
+    width: 100px;
+  }
+
   #editBtn {
     background-color: rgba(158, 158, 26, 0.989);
   }

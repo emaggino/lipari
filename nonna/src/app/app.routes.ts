@@ -7,6 +7,7 @@ import { EditComponent } from './components/edit/edit.component';
 import { TipiComponent } from './components/tipi/tipi.component';
 import { SecondiComponent } from './components/secondi/secondi.component';
 import { DolciComponent } from './components/dolci/dolci.component';
+import { FruttaComponent } from './components/frutta/frutta.component';
 
 export const routes: Routes = [
     {path: '' , component: ListComponent},
@@ -16,5 +17,6 @@ export const routes: Routes = [
     {path: 'edit' , component: EditComponent},
     {path: 'tipi', component: TipiComponent},
     {path: 'secondi', component: SecondiComponent},
-    {path: 'dolci' , component: DolciComponent}
+    {path: 'dolci' , component: DolciComponent},
+    {path: 'frutta', component: FruttaComponent}
 ];
