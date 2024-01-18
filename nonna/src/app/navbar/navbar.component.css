@@ -21,9 +21,8 @@
     color: rgb(64, 101, 133);
 }
 
-.title {
-    margin-right: 480px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 20px;
+.img {
+    margin-right: 490px;
     color: aliceblue;
+    width: 250px;
 }
