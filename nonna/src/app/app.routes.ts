@@ -5,6 +5,7 @@ import { PdpComponent } from './components/pdp/pdp.component';
 import { ListComponent } from './components/list/list.component';
 import { EditComponent } from './components/edit/edit.component';
 import { TipiComponent } from './components/tipi/tipi.component';
+import { SecondiComponent } from './components/secondi/secondi.component';
 
 export const routes: Routes = [
     {path: '' , component: ListComponent},
@@ -12,5 +13,6 @@ export const routes: Routes = [
     {path: 'pdp/:id' , component: PdpComponent},
     {path: 'home' , component: HomepageComponent},
     {path: 'edit' , component: EditComponent},
-    {path: 'tipi/:typeId', component: TipiComponent}
+    {path: 'tipi', component: TipiComponent},
+    {path: 'secondi', component: SecondiComponent}
 ];
