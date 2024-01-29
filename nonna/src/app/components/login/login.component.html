@@ -17,14 +17,14 @@
       <input [(ngModel)]="passValue" type="password" placeholder="password" />
       <div class="btn">
         <button mat-button routerLink="/" color="primary">Back</button>
-        <button
-          *ngIf="isLogged"
+          <button
           (click)="checkInput()"
           mat-button
           color="primary"
         >
           Confirm
         </button>
+        
 
         <!-- <ng-template #notLogged>
           <button mat-button color="primary"></button>

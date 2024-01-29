@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ActivatedRoute, Route, Router, RouterModule } from '@angular/router';
@@ -19,25 +19,22 @@ import { NgIf } from '@angular/common';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
-export class LoginComponent {
-  isLogged 
+export class LoginComponent implements OnInit {
   constructor(
     private route: Router,
     private loginService: LoginService,
     private router: ActivatedRoute
-    ) {
-      this.isLogged = this.loginService.loginTrack
-    }
+  ) {}
 
-    get isUserLogged() : boolean {
-      return this.loginService.isLogged
-    }
+  //isLogged : any = localStorage.getItem('isLogged');
 
-    toggleLogin(){
-      this.loginService.toggleLoginVisibility()
-      alert(this.isLogged);
-    }
-  
+  isLogged = this.loginService.isLogged
+
+  login () {
+    this.isLogged = true
+    console.log(this.isLogged);
+  }
+
   userValue: any;
   passValue: any;
 
@@ -50,15 +47,19 @@ export class LoginComponent {
 
   // }
 
+  ngOnInit(): void {
+      console.log(this.isLogged);
+  }
+
   checkInput() {
     if (this.userValue === 'admin' && this.passValue === 'admin') {
       alert('sei Loggato!');
-      //this.route.navigate(['/pdp'])
-      this.loginService.isLogged = true;
+      this.loginService.isLogged = true 
+      //localStorage.setItem('isLogged', 'true')
     } else {
       alert('credenziali non corrette');
     }
-    console.log(this.loginService.isLogged);
+    console.log(this.isLogged);
   }
 
   // navigate() {

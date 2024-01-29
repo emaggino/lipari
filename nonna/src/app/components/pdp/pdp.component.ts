@@ -5,6 +5,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { ListService } from '../../services/list.service';
 import { NgFor } from '@angular/common';
+import { SecondiService } from '../../services/secondi.service';
 
 @Component({
   selector: 'app-pdp',
@@ -17,14 +18,15 @@ export class PdpComponent implements OnInit{
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private listService: ListService
+    private listService: ListService,
+    private secondiService: SecondiService
   ) {}
 
   tipoPiatto = this.listService.tipoPortata;
+  mock : any
 
   ngOnInit(): void {
-      let id: number
-      this.route.params.subscribe(params => id = params['id'])
+    this.mock = this.secondiService.mockSecondi.find(res => res.title = 'Fiorentina')
   }
 
   mockPdpDolce = {

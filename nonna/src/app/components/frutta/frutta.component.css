@@ -81,4 +81,19 @@
     color: aliceblue;
   }
 
+  .addContainer > button {
+    width: 100px;
+    margin: 10px;
+    background-color: red;
+    color: aliceblue;
+  }
+
+  .addContainer {
+    position: absolute;
+    right: 100px;
+    top: 120px;
+  }
+
+
+
   

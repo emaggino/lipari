@@ -42,10 +42,12 @@
     <button mat-button routerLink="/dolci" class="btn">Dolci</button>
     <button mat-button routerLink="/frutta" class="btn">Frutta</button>
   </mat-card-actions>
-  <mat-paginator
+  <div class="paginatorContainer">
+    <mat-paginator
+    class="paginator"
     [length]="totalItems"
     [pageSize]="pageSize"
     (page)="onPageChange($event)"
   ></mat-paginator>
-  <app-footer></app-footer>
+  </div>
 </div>

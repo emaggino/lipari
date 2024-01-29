@@ -8,17 +8,18 @@ export class LoginService {
 
   isLogged = false
 
-  loginTrack: Subject<boolean> = new Subject<boolean>()
+  
+  
+  //loginTrack: Subject<boolean> = new Subject<boolean>()
 
   constructor() {
-    this.loginTrack.subscribe((value) => {
-      this.isLogged = value
+    window.addEventListener('storage', function(e) {
+      if(e.key === 'loginStatus') {
+        console.log('someone changed my local storage');
+      }
     })
-   }
-
-   toggleLoginVisibility() {
-    this.loginTrack.next(!this.isLogged)
-   }
+    localStorage.setItem('loginStatus', 'false')
+  }
 
 
 }
