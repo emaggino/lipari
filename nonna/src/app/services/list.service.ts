@@ -1,12 +1,22 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { EventEmitter, Injectable, inject } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 
+
+const BASE_URL = 'https://jsonplaceholder.typicode.com/todos';
 @Injectable({
   providedIn: 'root',
 })
 export class ListService {
+  private http = inject(HttpClient)
   pageSize = 5;
   pageChanged = new EventEmitter<PageEvent>();
+
+  constructor() {}
+
+  getList() {
+    return this.http.get(BASE_URL)
+  }
 
   tipoPortata = [
     {

@@ -9,7 +9,13 @@
       }
     </mat-form-field>
   </div>
-  <ul>
+ 
+  <div *ngFor="let item of list | paginate: {itemsPerPage: 4, currentPage: p}">
+    <p>{{item.id}}</p>
+    <p>{{item.title}}</p>
+  </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <!-- <ul>
     <div *ngFor="let tipo of tipoPiatto; let i = index" id="ozi" class="cardContainer">
       <li *ngFor="let spec of tipo.tipo; let i = index">
         <mat-card class="card">
@@ -41,13 +47,6 @@
     <button mat-button routerLink="/secondi" class="btn">Secondi</button>
     <button mat-button routerLink="/dolci" class="btn">Dolci</button>
     <button mat-button routerLink="/frutta" class="btn">Frutta</button>
-  </mat-card-actions>
-  <div class="paginatorContainer">
-    <mat-paginator
-    class="paginator"
-    [length]="totalItems"
-    [pageSize]="pageSize"
-    (page)="onPageChange($event)"
-  ></mat-paginator>
-  </div>
+  </mat-card-actions> -->
+  
 </div>

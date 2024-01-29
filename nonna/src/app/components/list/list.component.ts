@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, RouterModule } from '@angular/router';
@@ -11,6 +11,8 @@ import { LoginService } from '../../services/login.service';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { FooterComponent } from '../footer/footer.component';
+import { HttpClient } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-list',
@@ -27,23 +29,55 @@ import { FooterComponent } from '../footer/footer.component';
     NgFor,
     NgIf,
     NgSwitch,
-    FooterComponent
+    FooterComponent,
+    NgxPaginationModule,
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit{
   constructor(
-    private listService: ListService,
     private loginService: LoginService,
     private activeRoute: ActivatedRoute
   ) {}
 
-  
-ngOnInit(): void {
-    
-}
-  
+  private listService = inject(ListService)
+
+  ngOnInit(): void {
+      this.loadList()
+  }
+
+
+  //http = inject(HttpClient) 
+  p: any
+  list: any = []
+
+  // fetchPosts(){
+  //   this.http.get('https://fakestoreapi.com/products').subscribe((list: any) => {
+  //     console.log(list);
+  //     this.list = list;
+  //   })
+  // }
+
+  // loadList(){
+  //   this.listService.getList().subscribe((list: any) => {
+  //     console.log(list);
+  //     this.list = list
+  //   })
+  // }
+ 
+  loadList() {
+    this.listService.getList().subscribe({
+      next : (list : any) => {
+        this.list = list
+        console.log('loaded succesfully');
+      },
+      error: (error) => {console.log('error', error);
+      }
+    })
+  }
+
+
 
   totalItems = this.listService.totalItems;
   pageSize = this.listService.pageSize;
