@@ -3,19 +3,22 @@ import { EventEmitter, Injectable, inject } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 
 
-const BASE_URL = 'https://jsonplaceholder.typicode.com/todos';
+
+//const BASE_URL = `http://localhost:8080/api/ricette/lista?page=${this.p}&size=2`;
 @Injectable({
   providedIn: 'root',
 })
 export class ListService {
   private http = inject(HttpClient)
-  pageSize = 5;
-  pageChanged = new EventEmitter<PageEvent>();
+  
+  p : any
+  s : any
+
 
   constructor() {}
 
   getList() {
-    return this.http.get(BASE_URL)
+    return this.http.get(`http://localhost:8080/api/ricette/lista?page=${this.p}&size=${this.s}`)
   }
 
   tipoPortata = [
@@ -200,6 +203,4 @@ export class ListService {
       ] 
     }
   ]
-
-  totalItems = this.tipoPortata.length;
 }

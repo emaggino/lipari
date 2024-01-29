@@ -9,12 +9,37 @@
       }
     </mat-form-field>
   </div>
- 
-  <div *ngFor="let item of list | paginate: {itemsPerPage: 4, currentPage: p}">
-    <p>{{item.id}}</p>
-    <p>{{item.title}}</p>
+
+  <div
+    class="cardContainer"
+    *ngFor="
+      let item of list.content | paginate : { itemsPerPage: 2, currentPage: p }
+    "
+  >
+  <ul>
+      <li>
+        <a routerLink="/secondi">
+          <mat-card class="card">
+          <mat-card-header>
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-title>{{ item.titolo }}</mat-card-title>
+            <mat-card-subtitle>{{ item.ingredienti }}</mat-card-subtitle>
+          </mat-card-header>
+          <div class="text">
+            <mat-card-content>
+              <p><span>Persone:</span> {{ item.quantitaPersone }}</p>
+            </mat-card-content>
+          </div>
+          <mat-card-actions>
+          </mat-card-actions>
+        </mat-card>
+        </a>
+        
+      </li>
+  </ul>
   </div>
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+  <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
   <!-- <ul>
     <div *ngFor="let tipo of tipoPiatto; let i = index" id="ozi" class="cardContainer">
       <li *ngFor="let spec of tipo.tipo; let i = index">
@@ -48,5 +73,4 @@
     <button mat-button routerLink="/dolci" class="btn">Dolci</button>
     <button mat-button routerLink="/frutta" class="btn">Frutta</button>
   </mat-card-actions> -->
-  
 </div>

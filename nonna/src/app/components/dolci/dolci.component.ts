@@ -41,21 +41,10 @@ export class DolciComponent implements OnInit {
     private typeService : TipiService
   ) {}
 
-  totalItems = this.listService.totalItems;
-  pageSize = this.listService.pageSize;
-
   ngOnInit(): void {
     // let typeId = this.activeRoute.snapshot.paramMap.get('typeId')
     // console.warn(typeId)
     // typeId && this.typeService.getRecipe(typeId)
-  }
-
-  onPageChange(event: PageEvent) {
-    this.listService.pageChanged.emit(event);
-
-    const startIndex = event.pageIndex * event.pageSize;
-    const endIndex = startIndex + event.pageSize;
-    const currentPageData = this.tipoPiatto.slice(startIndex, endIndex);
   }
 
   value: string = '';

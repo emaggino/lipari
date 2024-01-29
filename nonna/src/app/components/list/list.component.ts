@@ -65,12 +65,14 @@ export class ListComponent implements OnInit{
   //     this.list = list
   //   })
   // }
+
+  s: any
  
   loadList() {
     this.listService.getList().subscribe({
       next : (list : any) => {
         this.list = list
-        console.log('loaded succesfully');
+        console.log('lista', list);
       },
       error: (error) => {console.log('error', error);
       }
@@ -79,16 +81,6 @@ export class ListComponent implements OnInit{
 
 
 
-  totalItems = this.listService.totalItems;
-  pageSize = this.listService.pageSize;
-
-  onPageChange(event: PageEvent) {
-    this.listService.pageChanged.emit(event);
-
-    const startIndex = event.pageIndex * event.pageSize;
-    const endIndex = startIndex + event.pageSize;
-    const currentPageData = this.tipoPiatto.slice(startIndex, endIndex);
-  }
 
   value: string = '';
   isLogged = this.loginService.isLogged;
