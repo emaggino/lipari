@@ -18,16 +18,17 @@
   >
   <ul>
       <li>
-        <a routerLink="/secondi">
+        <a class="aCard" routerLink="/pdp/{{item.id}}">
           <mat-card class="card">
           <mat-card-header>
             <div mat-card-avatar class="header-image"></div>
             <mat-card-title>{{ item.titolo }}</mat-card-title>
-            <mat-card-subtitle>{{ item.ingredienti }}</mat-card-subtitle>
+            <!-- <mat-card-subtitle>{{ item.categoria }}</mat-card-subtitle> -->
           </mat-card-header>
           <div class="text">
             <mat-card-content>
-              <p><span>Persone:</span> {{ item.quantitaPersone }}</p>
+              <p><span>Persone: </span> {{ item.quantitaPersone }}</p>
+              <p><span>Ingredienti: </span> {{ item.ingredienti }}</p>
             </mat-card-content>
           </div>
           <mat-card-actions>

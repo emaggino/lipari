@@ -14,11 +14,17 @@ export class ListService {
   p : any
   s : any
 
+  id: any
+
 
   constructor() {}
 
   getList() {
     return this.http.get(`http://localhost:8080/api/ricette/lista?page=${this.p}&size=${this.s}`)
+  }
+
+  getCategoria() {
+    return this.http.get(`http://localhost:8080/api/categorie/get/${this.id}`)
   }
 
   tipoPortata = [

@@ -20,6 +20,7 @@
 .text {
   width: 300px;
   color: aliceblue;
+  border-bottom: none;
 }
 
 .img {
@@ -29,6 +30,7 @@
 .cardContainer > ul > li {
   list-style-type: none;
 }
+
 
 .card {
   max-width: 300px;

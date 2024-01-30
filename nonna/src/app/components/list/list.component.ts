@@ -51,22 +51,9 @@ export class ListComponent implements OnInit{
   //http = inject(HttpClient) 
   p: any
   list: any = []
-
-  // fetchPosts(){
-  //   this.http.get('https://fakestoreapi.com/products').subscribe((list: any) => {
-  //     console.log(list);
-  //     this.list = list;
-  //   })
-  // }
-
-  // loadList(){
-  //   this.listService.getList().subscribe((list: any) => {
-  //     console.log(list);
-  //     this.list = list
-  //   })
-  // }
-
   s: any
+
+  
  
   loadList() {
     this.listService.getList().subscribe({
