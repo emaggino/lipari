@@ -2,12 +2,14 @@
 
 <div class="container">
   <div class="imageContainer">
-    <img src="{{mockPdpDolce.image}}" alt="">
+    <!-- <img src="{{}}" alt=""> -->
   </div>
   <div class="infoContainer">
     <div class="description">
-      <h2>{{mockPdpDolce.title}}</h2>
-      <p>{{mockPdpDolce.description}}</p>
+      <h2>{{recipeData.titolo}}</h2>
+      <p>Ingredienti: {{recipeData.ingredienti}}</p>
+      <p>Preparazione: {{recipeData.quantitaPersone}}</p>
+      <p>Svolgimento: {{recipeData.preparazione}}</p>
     </div>
     <div>
       <button class="btn" routerLink="/" mat-button>Back</button>

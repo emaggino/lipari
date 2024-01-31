@@ -1,35 +1,41 @@
-<div class="container">
-  <div class="container2">
-    <mat-form-field>
-      <p>Enter your username</p>
-      <input
-        [(ngModel)]="userValue"
-        type="text"
-        matInput
-        placeholder="username"
-        required
-      />
-    </mat-form-field>
-  </div>
-  <div class="container2">
-    <mat-form-field>
-      <p>Enter your password:</p>
-      <input [(ngModel)]="passValue" type="password" placeholder="password" />
-      <div class="btn">
-        <button mat-button routerLink="/" color="primary">Back</button>
-          <button
-          (click)="checkInput()"
-          mat-button
-          color="primary"
-        >
-          Confirm
-        </button>
-        
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+  <div class="container">
+    <div class="container2">
+      <mat-form-field>
+        <p>Enter your username</p>
+        <input
+          type="text"
+          matInput
+          placeholder="username"
+          required
+        />
+      </mat-form-field>
+    </div>
 
-        <!-- <ng-template #notLogged>
-          <button mat-button color="primary"></button>
-        </ng-template> -->
-      </div>
-    </mat-form-field>
+    <div class="container2">
+      <mat-form-field>
+        <p>Enter your password:</p>
+        <input type="password" placeholder="password" />
+        <div class="btn">
+          <button mat-button routerLink="/" color="primary">Back</button>
+          <button mat-button color="primary">Confirm</button>
+          <ng-template #notLogged>
+            <!-- <button mat-button color="primary"></button> -->
+          </ng-template>
+        </div>
+      </mat-form-field>
+    </div>
   </div>
-</div>
+</form>
+
+<!-- <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" name="email" ngModel required>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" name="password" ngModel required>
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Invia</button>
+</form> -->

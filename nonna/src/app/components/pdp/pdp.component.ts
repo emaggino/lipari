@@ -6,6 +6,7 @@ import { LoginService } from '../../services/login.service';
 import { ListService } from '../../services/list.service';
 import { NgFor } from '@angular/common';
 import { SecondiService } from '../../services/secondi.service';
+import { PdpService } from '../../services/pdp.service';
 
 @Component({
   selector: 'app-pdp',
@@ -19,14 +20,19 @@ export class PdpComponent implements OnInit{
     private route: ActivatedRoute,
     private router: Router,
     private listService: ListService,
-    private secondiService: SecondiService
+    private pdpService: PdpService
   ) {}
 
   tipoPiatto = this.listService.tipoPortata;
-  mock : any
+  recipeData : any
 
   ngOnInit(): void {
-    this.mock = this.secondiService.mockSecondi.find(res => res.title = 'Fiorentina')
+    let recipeId = this.route.snapshot.paramMap.get('recipeId')
+    console.log(recipeId);
+    recipeId && this.pdpService.getById(recipeId).subscribe((res) => {
+      console.log(res);
+      this.recipeData = res
+    })
   }
 
   mockPdpDolce = {

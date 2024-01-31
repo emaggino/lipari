@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
@@ -6,19 +7,21 @@ import { Subject } from 'rxjs';
 })
 export class LoginService {
 
-  isLogged = false
+  isLogged = true
+  isAdmin = true
+
+  loginUrl = `http://localhost:8080/api/auth/signin`
 
   
   
   //loginTrack: Subject<boolean> = new Subject<boolean>()
 
-  constructor() {
-    window.addEventListener('storage', function(e) {
-      if(e.key === 'loginStatus') {
-        console.log('someone changed my local storage');
-      }
-    })
-    localStorage.setItem('loginStatus', 'false')
+  constructor(private http: HttpClient) {
+   
+  }
+
+  login(email: string, password: string){
+    return this.http.post(this.loginUrl , {email: email, password: password})
   }
 
 

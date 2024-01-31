@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MatFormFieldModule,
     NavbarComponent,
     MatSidenavModule,
-    FooterComponent
+    FooterComponent,
+    FormsModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

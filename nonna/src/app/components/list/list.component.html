@@ -32,10 +32,28 @@
             </mat-card-content>
           </div>
           <mat-card-actions>
+            
           </mat-card-actions>
         </mat-card>
         </a>
-        
+        <div class="buttonContainer">
+          <button routerLink="/pdp/{{item.id}}" class="btn" mat-button>
+            Dettaglio
+          </button>
+          <!-- <button class="btn" routerLink="/" mat-button>Back</button> -->
+          <div>
+            <button id="editBtn" class="btn" mat-button>Edit</button>
+          </div>
+          <div>
+            <button
+              id="deleteBtn"
+              class="btn"
+              mat-button
+            >
+              Delete
+            </button>
+          </div>
+        </div>
       </li>
   </ul>
   </div>
