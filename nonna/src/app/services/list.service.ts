@@ -1,3 +1,4 @@
+import { query } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, inject } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
@@ -27,6 +28,11 @@ export class ListService {
     return this.http.get(`http://localhost:8080/api/categorie/get/${this.id}`)
   }
 
+  searchRecipe() {
+    this.http.get(`http://localhost:8080/api/ricette/search?titolo=${query}`)
+  }
+
+  
   tipoPortata = [
     {
       tipo : [

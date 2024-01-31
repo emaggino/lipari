@@ -1,0 +1,16 @@
+<div class="container" *ngFor="let item of searchResult">
+    <div class="imageContainer">
+      <!-- <img src="{{}}" alt=""> -->
+    </div>
+    <div class="infoContainer">
+      <div class="description">
+        <h2>{{searchResult.titolo}}</h2>
+        <p>Ingredienti:</p>
+        <p>Preparazione:</p>
+        <p>Svolgimento:</p>
+      </div>
+      <div>
+        <button class="btn" routerLink="/" mat-button>Back</button>
+      </div>
+    </div>
+  </div>

@@ -1,1 +1,33 @@
-<p>add works!</p>
+<form>
+  <div class="container">
+    <div class="container2">
+      <mat-form-field>
+        <p>Titolo:</p>
+        <input type="text" matInput placeholder="Titolo" required />
+      </mat-form-field>
+    </div>
+    <div class="container2">
+        <mat-form-field>
+          <p>Preparazione:</p>
+          <input type="text" matInput placeholder="Preparazione" required />
+        </mat-form-field>
+      </div>
+      <div class="container2">
+        <mat-form-field>
+          <p>Ingredienti:</p>
+          <input class="text" type="text" matInput placeholder="Ingredienti" required />
+        </mat-form-field>
+      </div>
+
+    <div class="container2">
+      <mat-form-field>
+        <p>Quantità Persone:</p>
+        <input type="text" placeholder="Quantità persone" />
+        <div class="btn">
+          <button mat-button routerLink="/" color="primary">Back</button>
+          <button mat-button color="primary">Confirm</button>
+        </div>
+      </mat-form-field>
+    </div>
+  </div>
+</form>

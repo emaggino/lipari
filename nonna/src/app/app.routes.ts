@@ -9,6 +9,7 @@ import { SecondiComponent } from './components/secondi/secondi.component';
 import { DolciComponent } from './components/dolci/dolci.component';
 import { FruttaComponent } from './components/frutta/frutta.component';
 import { AddComponent } from './components/add/add.component';
+import { SearchComponent } from './components/search/search.component';
 
 export const routes: Routes = [
     {path: '' , component: ListComponent},
@@ -21,4 +22,5 @@ export const routes: Routes = [
     {path: 'dolci' , component: DolciComponent},
     {path: 'frutta', component: FruttaComponent},
     {path: 'add', component: AddComponent},
+    {path: 'search/:titolo', component: SearchComponent}
 ];

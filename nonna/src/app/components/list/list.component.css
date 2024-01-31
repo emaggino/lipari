@@ -60,3 +60,10 @@
   color: aliceblue;
 }
 
+.searchButton {
+  height: 57px;
+  width: 100px;
+  background-color: rgb(64, 101, 133);
+  color: aliceblue;
+}
+

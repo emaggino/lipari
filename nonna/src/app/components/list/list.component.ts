@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
@@ -38,13 +38,15 @@ import { NgxPaginationModule } from 'ngx-pagination';
 export class ListComponent implements OnInit{
   constructor(
     private loginService: LoginService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private route : Router
   ) {}
 
   private listService = inject(ListService)
 
   ngOnInit(): void {
       this.loadList()
+      let query = this.activeRoute.snapshot.paramMap.get('query')
   }
 
 
@@ -64,6 +66,11 @@ export class ListComponent implements OnInit{
       error: (error) => {console.log('error', error);
       }
     })
+  }
+
+  submitSearch(val: string) {
+    console.warn(val);
+    this.route.navigate([`search/${val}`])
   }
 
 
