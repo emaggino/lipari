@@ -35,28 +35,43 @@ export class LoginComponent implements OnInit {
     private router: ActivatedRoute
   ) {}
 
-  //isLogged : any = localStorage.getItem('isLogged');
-
-  isLogged = false;
-
   getData: any;
+
+  isLogged: any;
+  isAdmin: any
 
   onLogin() {
     this.loginService.login(this.loginObj).subscribe((res) => {
       if (
-        this.loginObj.username == 'user' &&
-        this.loginObj.password == 'user'
+        this.loginObj.username === 'user' &&
+        this.loginObj.password === 'user'
       ) {
-        console.log('login response', res);
-        console.log(this.loginObj);
-        this.route.navigateByUrl('/');
-        alert('sei loggato');
+        this.loginService.isLogged = true;
+        this.route.navigate(['/']);
+
+        alert('sei loggato come user');
         localStorage.setItem('accessToken', res.accessToken);
+        localStorage.setItem(
+          'user',
+          this.loginObj.username + this.loginObj.password
+        );
         //this.isLogged = true;
-        console.log(this.isLogged);
-      }
-      else {
-        alert('Bad Credentials')
+        localStorage.setItem('userLogin', 'logged');
+      } 
+      
+      if (this.loginObj.username === 'admin' && this.loginObj.password === 'admin') {
+        this.loginService.isLogged = true;
+        this.loginService.isAdmin = true;
+        localStorage.setItem(
+          'user',
+          this.loginObj.username + this.loginObj.password
+        );
+        console.log('adminStatus', this.loginService.isAdmin);
+        console.log('loginstatus', this.loginService.isLogged);
+
+        this.route.navigate(['/']);
+        localStorage.setItem('adminLogin', 'logged');
+        alert('sei loggato come admin');
       }
     });
   }
@@ -74,7 +89,7 @@ export class LoginComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    console.log(this.isLogged);
+    console.log('adminOninit',this.loginService.isAdmin);
   }
 
   // onSubmit(form : NgForm){
@@ -86,16 +101,16 @@ export class LoginComponent implements OnInit {
   //   form.reset()
   // }
 
-  checkInput() {
-    if (this.userValue === 'admin' && this.passValue === 'admin') {
-      alert('sei Loggato!');
-      this.loginService.isLogged = true;
-      //localStorage.setItem('isLogged', 'true')
-    } else {
-      alert('credenziali non corrette');
-    }
-    console.log(this.isLogged);
-  }
+  // checkInput() {
+  //   if (this.userValue === 'admin' && this.passValue === 'admin') {
+  //     alert('sei Loggato!');
+  //     this.loginService.isLogged = true;
+  //     //localStorage.setItem('isLogged', 'true')
+  //   } else {
+  //     alert('credenziali non corrette');
+  //   }
+  //   console.log(this.isLogged);
+  // }
 
   // navigate() {
   //   this.route.navigate(['pdp'], {relativeTo: this.router})

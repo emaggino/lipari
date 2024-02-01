@@ -2,16 +2,14 @@
   <div class="navbar">
     <div>
       <img class="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE8cU-55IysH6QYTcjQ3qC1cFurODvSacV5Gcgy_hA8Q&s" alt="">
-      <div *ngIf="isLogged else notLogged">
+      <div *ngIf="this.service.isLogged == false">
         <button routerLink="/login" class="btn" mat-button>Log-In</button>
       </div>
-      <div >
-        <ng-template #notLogged>
-          <button class="btn" mat-button>Log-Out</button>
-        </ng-template>
+      <div *ngIf="this.service.isLogged == true">
+          <button (click)="logOut()" class="btn" mat-button>Logout</button>
       </div>
       <button routerLink="/" class="btn" mat-button>Home</button>
-      <button routerLink="/add" class="btn" mat-button>Aggiungi Ricetta</button>
+      <button *ngIf="isAdmin" routerLink="/add" class="btn" mat-button>Aggiungi Ricetta</button>
     </div>
   </div>
 </div>

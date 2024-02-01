@@ -37,7 +37,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 })
 export class ListComponent implements OnInit{
   constructor(
-    private loginService: LoginService,
+    public loginService: LoginService,
     private activeRoute: ActivatedRoute,
     private route : Router
   ) {}
@@ -45,9 +45,14 @@ export class ListComponent implements OnInit{
   private listService = inject(ListService)
 
   ngOnInit(): void {
+      if(localStorage.getItem('user')){
+        this.loginService.isAdmin = true
+      }
       this.loadList()
       let query = this.activeRoute.snapshot.paramMap.get('query')
   }
+
+  isAdmin = this.loginService.isAdmin
 
 
   //http = inject(HttpClient) 

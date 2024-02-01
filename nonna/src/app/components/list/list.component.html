@@ -47,6 +47,7 @@
           </div>
           <div>
             <button
+              *ngIf="this.loginService.isAdmin == true"
               id="deleteBtn"
               class="btn"
               mat-button

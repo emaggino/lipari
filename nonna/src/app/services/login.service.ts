@@ -8,8 +8,9 @@ import {login} from '../interfaces/data'
 })
 export class LoginService {
 
-  isLogged = true
-  isAdmin = true
+  isLogged: boolean = false
+  isAdmin: boolean = false
+  isUser: boolean = false
 
   loginUrl = `http://localhost:8080/api/auth/signin`
 
