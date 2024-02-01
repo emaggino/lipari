@@ -6,12 +6,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { LoginService } from '../../services/login.service';
 import { NgIf } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
+import { login } from '../../interfaces/data';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
-    MatFormFieldModule, 
+    MatFormFieldModule,
     MatInputModule,
     RouterModule,
     MatButtonModule,
@@ -20,22 +21,44 @@ import { MatInputModule } from '@angular/material/input';
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
-  exportAs: 'ngForm'
+  exportAs: 'ngForm',
 })
 export class LoginComponent implements OnInit {
+  loginObj: any = {
+    username: '',
+    password: '',
+  };
+
   constructor(
     private route: Router,
     private loginService: LoginService,
     private router: ActivatedRoute
-    ) {}
+  ) {}
 
   //isLogged : any = localStorage.getItem('isLogged');
 
-  isLogged = this.loginService.isLogged
+  isLogged = false;
 
-  login () {
-    this.isLogged = true
-    console.log(this.isLogged);
+  getData: any;
+
+  onLogin() {
+    this.loginService.login(this.loginObj).subscribe((res) => {
+      if (
+        this.loginObj.username == 'user' &&
+        this.loginObj.password == 'user'
+      ) {
+        console.log('login response', res);
+        console.log(this.loginObj);
+        this.route.navigateByUrl('/');
+        alert('sei loggato');
+        localStorage.setItem('accessToken', res.accessToken);
+        //this.isLogged = true;
+        console.log(this.isLogged);
+      }
+      else {
+        alert('Bad Credentials')
+      }
+    });
   }
 
   userValue: any;
@@ -51,22 +74,22 @@ export class LoginComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-      console.log(this.isLogged);
+    console.log(this.isLogged);
   }
 
-  onSubmit(form : NgForm){
-    const email = form.value.email
-    const password = form.value.password
-    this.loginService.login(email, password).subscribe((data) => {
-      console.log(data);
-    })
-    form.reset()
-  }
+  // onSubmit(form : NgForm){
+  //   const email = form.value.email
+  //   const password = form.value.password
+  //   this.loginService.login(email, password).subscribe((data) => {
+  //     console.log(data);
+  //   })
+  //   form.reset()
+  // }
 
   checkInput() {
     if (this.userValue === 'admin' && this.passValue === 'admin') {
       alert('sei Loggato!');
-      this.loginService.isLogged = true 
+      this.loginService.isLogged = true;
       //localStorage.setItem('isLogged', 'true')
     } else {
       alert('credenziali non corrette');

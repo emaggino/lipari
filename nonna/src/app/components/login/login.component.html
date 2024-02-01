@@ -1,4 +1,4 @@
-<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+<form>
   <div class="container">
     <div class="container2">
       <mat-form-field>
@@ -7,7 +7,9 @@
           type="text"
           matInput
           placeholder="username"
+          [(ngModel)]="loginObj.username"
           required
+          name="username"
         />
       </mat-form-field>
     </div>
@@ -15,12 +17,20 @@
     <div class="container2">
       <mat-form-field>
         <p>Enter your password:</p>
-        <input type="password" placeholder="password" />
+        <input
+          type="password"
+          placeholder="password"
+          [(ngModel)]="loginObj.password"
+          required
+          name="password"
+        />
         <div class="btn">
           <button mat-button routerLink="/" color="primary">Back</button>
-          <button mat-button color="primary">Confirm</button>
+          <button *ngIf="isLogged == false; else notLogged" (click)="onLogin()" mat-button color="primary">
+            Confirm
+          </button>
           <ng-template #notLogged>
-            <!-- <button mat-button color="primary"></button> -->
+            <button mat-button color="primary">Log-out</button>
           </ng-template>
         </div>
       </mat-form-field>

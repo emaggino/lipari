@@ -10,6 +10,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule, NgForm } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { GenericInterceptor } from './generic.interceptor';
 
 @Component({
   selector: 'app-root',
@@ -26,6 +28,12 @@ import { FormsModule, NgForm } from '@angular/forms';
     MatSidenavModule,
     FooterComponent,
     FormsModule
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: GenericInterceptor,
+      multi: true
+    }
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
