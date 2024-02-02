@@ -13,9 +13,9 @@ export class AddService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('accessToken') || '')
+        'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
       })
     }
-    return this.http.post(`http://localhost:8080/api/ricette/crea-ricetta${httpOptions}`, obj)
+    return this.http.post(`http://localhost:8080/api/ricette/crea-ricetta`, obj, httpOptions)
   }
 }

@@ -37,6 +37,8 @@ export class AddComponent {
   aggiungiRicetta() {
     this.addService.creaRicetta(this.ricettaObj).subscribe((res) => {
       console.log('response:', res);
+      console.log('token', res.token);
+      
       //console.log(this.ricettaObj);
       // const token = localStorage.getItem('accessToken');
       // console.log('token', token);

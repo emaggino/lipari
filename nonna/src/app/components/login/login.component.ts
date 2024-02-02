@@ -50,7 +50,6 @@ export class LoginComponent implements OnInit {
         this.route.navigate(['/']);
 
         alert('sei loggato come user');
-        localStorage.setItem('accessToken', res.accessToken);
         localStorage.setItem(
           'user',
           this.loginObj.username + this.loginObj.password
@@ -62,6 +61,7 @@ export class LoginComponent implements OnInit {
       if (this.loginObj.username === 'admin' && this.loginObj.password === 'admin') {
         this.loginService.isLogged = true;
         this.loginService.isAdmin = true;
+        localStorage.setItem('accessToken', res.accessToken);
         localStorage.setItem(
           'user',
           this.loginObj.username + this.loginObj.password
