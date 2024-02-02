@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  background-color: rgb(64, 101, 133);
+}
+
+.textContainer > h2 {
+  color: aliceblue;
+  margin: 10px;
+}
+
+.buttonContainer > button {
+  margin: 30px;
+}
+
+#si {
+  background-color: red;
+}
+
+#no {
+    background-color: aliceblue;
+}

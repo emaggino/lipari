@@ -3,10 +3,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class EditService {
-  constructor(private http: HttpClient) {}
+export class DialogService {
+
+  constructor(private http : HttpClient) { }
 
   editRicetta(obj: any, id: any): Observable<any> {
     const httpOptions = {
@@ -16,7 +17,7 @@ export class EditService {
       })
     }
     return this.http.put(
-      `http://localhost:8080/api/ricette/update/` + id,
+      `http://localhost:8080/api/ricette/update/${id}`,
       obj,
       httpOptions
     );

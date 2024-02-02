@@ -3,9 +3,16 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ActivatedRoute, Router, RouterLink, RouterModule } from '@angular/router';
+import {
+  ActivatedRoute,
+  Router,
+  RouterLink,
+  RouterModule,
+} from '@angular/router';
 import { AddService } from '../../services/add.service';
 import { EditService } from '../../services/edit.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-edit',
@@ -21,11 +28,14 @@ import { EditService } from '../../services/edit.service';
   styleUrl: './edit.component.css',
 })
 export class EditComponent implements OnInit {
-  constructor(public editService: EditService, private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    public editService: EditService,
+    private route: ActivatedRoute,
+    private router: Router,
+    public dialog: MatDialog
+  ) {}
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   ricettaObj = {
     titolo: '',
@@ -38,14 +48,32 @@ export class EditComponent implements OnInit {
       categoria: '',
     },
   };
-  
-  editRicetta(){
-    let recipeId = this.route.snapshot.paramMap.get('recipeId')
+
+  editRicetta() {
+    let recipeId = this.route.snapshot.paramMap.get('recipeId');
     this.editService.editRicetta(this.ricettaObj, recipeId).subscribe((res) => {
       console.log('response', res);
-      this.router.navigate(['/'])
-      alert('Ricetta modificata con successo!')
+      this.router.navigate(['/']);
+      alert('Ricetta modificata con successo!');
+    });
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '550px',
+      height: '200px',
+      data: {
+        route: this.route
+      }
+    })
+
+    dialogRef.afterClosed().subscribe((res) => {
+      // let recipeId = this.route.snapshot.paramMap.get('recipeId');
+      //   this.editService.editRicetta(this.ricettaObj, recipeId).subscribe((res) => {
+      //     console.log('response', res);
+      //     this.router.navigate(['/']);
+      //     alert('Ricetta modificata con successo!');
+      //   });
     })
   }
 }
-
