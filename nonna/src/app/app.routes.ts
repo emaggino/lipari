@@ -22,5 +22,5 @@ export const routes: Routes = [
     {path: 'dolci' , component: DolciComponent},
     {path: 'frutta', component: FruttaComponent},
     {path: 'add', component: AddComponent},
-    {path: 'search/:titolo', component: SearchComponent}
+    {path: 'search/:titolo', component: SearchComponent},
 ];

@@ -3,29 +3,71 @@
     <div class="container2">
       <mat-form-field>
         <p>Titolo:</p>
-        <input type="text" matInput placeholder="Titolo" required />
+        <input
+          type="text"
+          matInput
+          placeholder="Titolo"
+          required
+          [(ngModel)]="this.ricettaObj.titolo"
+          name="titolo"
+        />
       </mat-form-field>
     </div>
     <div class="container2">
-        <mat-form-field>
-          <p>Preparazione:</p>
-          <input type="text" matInput placeholder="Preparazione" required />
-        </mat-form-field>
-      </div>
-      <div class="container2">
-        <mat-form-field>
-          <p>Ingredienti:</p>
-          <input class="text" type="text" matInput placeholder="Ingredienti" required />
-        </mat-form-field>
-      </div>
+      <mat-form-field>
+        <p>Preparazione:</p>
+        <input
+          type="text"
+          matInput
+          placeholder="Preparazione"
+          required
+          [(ngModel)]="this.ricettaObj.preparazione"
+          name="preparazione"
+        />
+      </mat-form-field>
+    </div>
+    <div class="container2">
+      <mat-form-field>
+        <p>Categoria:</p>
+        <input
+          type="text"
+          matInput
+          placeholder="Preparazione"
+          required
+          [(ngModel)]="this.ricettaObj.categoria.categoria"
+          name="preparazione"
+        />
+      </mat-form-field>
+    </div>
+    <div class="container2">
+      <mat-form-field>
+        <p>Ingredienti:</p>
+        <input
+          class="text"
+          type="text"
+          matInput
+          placeholder="Ingredienti"
+          required
+          [(ngModel)]="this.ricettaObj.ingredienti"
+          name="ingredienti"
+        />
+      </mat-form-field>
+    </div>
 
     <div class="container2">
       <mat-form-field>
         <p>Quantità Persone:</p>
-        <input type="text" placeholder="Quantità persone" />
+        <input
+          type="text"
+          placeholder="Quantità persone"
+          [(ngModel)]="this.ricettaObj.quantitaPersone"
+          name="quantitaPersone"
+        />
         <div class="btn">
           <button mat-button routerLink="/" color="primary">Back</button>
-          <button mat-button color="primary">Confirm</button>
+          <button (click)="aggiungiRicetta()" mat-button color="primary">
+            Aggiungi Ricetta
+          </button>
         </div>
       </mat-form-field>
     </div>

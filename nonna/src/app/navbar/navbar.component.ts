@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
   } 
 
   ngOnInit(): void {
-    if(localStorage.getItem('user')){
+    if(localStorage.getItem('userLogin') || localStorage.getItem('adminLogin')){
       this.service.isLogged = true
     }
     else if(localStorage.getItem('adminLogin')){
@@ -37,6 +37,7 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('user')
     localStorage.removeItem('adminLogin')
     localStorage.removeItem('userLogin')
+    localStorage.removeItem('accessToken')
   }
 
 }
