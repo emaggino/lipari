@@ -32,6 +32,16 @@ export class ListService {
     this.http.get(`http://localhost:8080/api/ricette/search?titolo=${query}`)
   }
 
+  deleteRicetta(id: string){
+    const httpOptions = {
+      headers : new Headers({
+        'Content-Type' : 'application/json',
+        'Authorization': 'bearer' + JSON.parse(localStorage.getItem('accessToken') || '')
+      })
+    }
+    return this.http.delete(`http://localhost:8080/api/ricette/delete/${id}`)
+  }
+
   
   tipoPortata = [
     {

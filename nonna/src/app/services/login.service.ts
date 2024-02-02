@@ -18,13 +18,13 @@ export class LoginService {
   constructor(private http: HttpClient) {}
 
   login(obj: any): Observable<any> {
-    const httpOptions = {
-      headers: new Headers({
-        'Content-Type': 'application/json',
-        Authotization:
-          'bearer ' + JSON.parse(localStorage.getItem('accessToken') || ''),
-      }),
-    };
+    // const httpOptions = {
+    //   headers: new Headers({
+    //     'Content-Type': 'application/json',
+    //     Authotization:
+    //       'bearer ' + JSON.parse(localStorage.getItem('accessToken') || ''),
+    //   }),
+    // };
     return this.http.post('http://localhost:8080/api/auth/signin', obj);
   }
 }
