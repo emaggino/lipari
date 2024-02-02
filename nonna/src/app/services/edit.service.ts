@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class EditService {
   constructor(private http: HttpClient) {}
 
-  editRicetta(id: string, obj: any): Observable<any> {
+  editRicetta(obj: any, id: any): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

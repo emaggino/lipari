@@ -3,7 +3,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { RouterLink, RouterModule } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { AddService } from '../../services/add.service';
 
 @Component({
@@ -20,7 +20,7 @@ import { AddService } from '../../services/add.service';
   styleUrl: './add.component.css',
 })
 export class AddComponent {
-  constructor(public addService: AddService) {}
+  constructor(public addService: AddService, private router: Router) {}
 
   ricettaObj = {
     titolo: '',
@@ -38,10 +38,11 @@ export class AddComponent {
     this.addService.creaRicetta(this.ricettaObj).subscribe((res) => {
       console.log('response:', res);
       console.log('token', res.token);
-      
       //console.log(this.ricettaObj);
       // const token = localStorage.getItem('accessToken');
       // console.log('token', token);
+      alert('ricetta creata con successo!')
+      this.router.navigate(['/'])
     });
 
     // this.ricettaObj.categoria.id = Math.random()

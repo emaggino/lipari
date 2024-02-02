@@ -16,7 +16,7 @@ export const routes: Routes = [
     {path: 'login' , component: LoginComponent},
     {path: 'pdp/:recipeId' , component: PdpComponent},
     {path: 'home' , component: HomepageComponent},
-    {path: 'edit' , component: EditComponent},
+    {path: 'edit/:recipeId' , component: EditComponent},
     {path: 'tipi', component: TipiComponent},
     {path: 'secondi', component: SecondiComponent},
     {path: 'dolci' , component: DolciComponent},

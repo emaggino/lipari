@@ -7,6 +7,8 @@ import { ListService } from '../../services/list.service';
 import { NgFor } from '@angular/common';
 import { SecondiService } from '../../services/secondi.service';
 import { PdpService } from '../../services/pdp.service';
+import { EditComponent } from '../edit/edit.component';
+import { EditService } from '../../services/edit.service';
 
 @Component({
   selector: 'app-pdp',
@@ -20,7 +22,8 @@ export class PdpComponent implements OnInit{
     private route: ActivatedRoute,
     private router: Router,
     private listService: ListService,
-    private pdpService: PdpService
+    private pdpService: PdpService,
+    private editService: EditService
   ) {}
 
   tipoPiatto = this.listService.tipoPortata;
@@ -33,6 +36,33 @@ export class PdpComponent implements OnInit{
       console.log(res);
       this.recipeData = res
     })
+  }
+
+  deleteRicetta(id: any){
+    this.listService.deleteRicetta(id).subscribe((res) => {
+      console.log('delete response', res);
+    })
+    this.router.navigate(['/'])
+  }
+
+  ricettaObj = {
+    titolo: '',
+    preparazione: '',
+    quantitaPersone: '',
+    ingredienti: '',
+    image: '',
+    categoria: {
+      id: 1,
+      categoria: '',
+    },
+  };
+  
+  editRicetta(){
+    let recipeId = this.route.snapshot.paramMap.get('recipeId')
+    this.editService.editRicetta(this.ricettaObj, recipeId).subscribe((res) => {
+      console.log('response', res);
+    })
+    this.router.navigate(['/'])
   }
 
   mockPdpDolce = {

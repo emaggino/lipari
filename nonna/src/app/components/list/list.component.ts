@@ -52,6 +52,13 @@ export class ListComponent implements OnInit{
       let query = this.activeRoute.snapshot.paramMap.get('query')
   }
 
+  deleteRicetta(id: any){
+    this.listService.deleteRicetta(id).subscribe((res) => {
+      console.log('delete response', res);
+    })
+    
+  }
+
   isAdmin = this.loginService.isAdmin
 
 
@@ -59,6 +66,7 @@ export class ListComponent implements OnInit{
   p: any
   list: any = []
   s: any
+  newList : any = []
 
   
  

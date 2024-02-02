@@ -1,5 +1,5 @@
 import { query } from '@angular/animations';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable, inject } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 
@@ -32,14 +32,14 @@ export class ListService {
     this.http.get(`http://localhost:8080/api/ricette/search?titolo=${query}`)
   }
 
-  deleteRicetta(id: string){
+  deleteRicetta(id: any){
     const httpOptions = {
-      headers : new Headers({
+      headers : new HttpHeaders({
         'Content-Type' : 'application/json',
-        'Authorization': 'bearer' + JSON.parse(localStorage.getItem('accessToken') || '')
+        'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
       })
     }
-    return this.http.delete(`http://localhost:8080/api/ricette/delete/${id}`)
+    return this.http.delete(`http://localhost:8080/api/ricette/delete/` + id , httpOptions)
   }
 
   

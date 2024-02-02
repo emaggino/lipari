@@ -76,5 +76,14 @@
 
 .btn {
   color: aliceblue;
-  background-color: rgb(64, 101, 133);
+  background-color: rgba(64, 101, 133, 0.944);
+  margin: 10px
+}
+
+#edit {
+  background-color: rgba(226, 192, 21, 0.921);
+}
+
+#delete {
+  background-color: rgba(185, 13, 13, 0.937);
 }
