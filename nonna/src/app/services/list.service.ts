@@ -42,6 +42,16 @@ export class ListService {
     return this.http.delete(`http://localhost:8080/api/ricette/delete/` + id , httpOptions)
   }
 
+  // preferiti(){
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({
+  //       'Content-Type' : 'application/json',
+  //       'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+  //     })
+  //   }
+  //   return this.http.post
+  // }
+
   
   tipoPortata = [
     {

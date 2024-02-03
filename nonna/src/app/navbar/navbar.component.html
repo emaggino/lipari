@@ -1,12 +1,23 @@
 <div class="container">
   <div class="navbar">
     <div>
-      <img class="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE8cU-55IysH6QYTcjQ3qC1cFurODvSacV5Gcgy_hA8Q&s" alt="">
+      <a routerLink="/">
+        <img
+          class="img"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE8cU-55IysH6QYTcjQ3qC1cFurODvSacV5Gcgy_hA8Q&s"
+          alt=""
+        />
+      </a>
       <div *ngIf="this.service.isLogged == false">
         <button routerLink="/login" class="btn" mat-button>Log-In</button>
       </div>
       <div *ngIf="this.service.isLogged == true">
-          <button (click)="logOut()" class="btn" mat-button>Logout</button>
+        <button (click)="logOut()" class="btn" mat-button>Logout</button>
+      </div>
+      <div>
+        <button routerLink="/preferiti" class="btn" mat-button>
+          Preferiti
+        </button>
       </div>
       <button routerLink="/" class="btn" mat-button>Home</button>
       <button routerLink="/add" class="btn" mat-button>Aggiungi Ricetta</button>

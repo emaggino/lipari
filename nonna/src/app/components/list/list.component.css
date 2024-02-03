@@ -67,6 +67,14 @@
   color: aliceblue;
 }
 
+#editBtn {
+  background-color: rgba(174, 174, 25, 0.904);
+}
+
+#deleteBtn{
+  background-color: rgba(166, 20, 20, 0.915);
+}
+
 .pagination {
   background-color: rgba(153, 170, 187, 0.721);
 }

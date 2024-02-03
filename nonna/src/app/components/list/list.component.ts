@@ -19,6 +19,7 @@ import { DeleteDialog2Component } from '../delete-dialog2/delete-dialog2.compone
 import { Dialog } from '@angular/cdk/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 
+
 @Component({
   selector: 'app-list',
   standalone: true,
@@ -104,6 +105,10 @@ export class ListComponent implements OnInit{
       error: (error) => {console.log('error', error);
       }
     })
+  }
+
+  addFavourites(){
+    
   }
 
   submitSearch(val: string) {
