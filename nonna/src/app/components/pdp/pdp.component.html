@@ -13,8 +13,8 @@
     </div>
     <div class="btnContainer">
       <button class="btn" routerLink="/" mat-button>Back</button>
-      <button id="edit" class="btn" routerLink="/" mat-button>Edit</button>
-      <button id="delete" class="btn" routerLink="/" mat-button>Delete</button>
+      <button id="edit" class="btn" routerLink="/edit/{{recipeData.id}}" mat-button>Edit</button>
+      <button (click)="openDialog()" id="delete" class="btn" mat-button>Delete</button>
     </div>
   </div>
 </div>

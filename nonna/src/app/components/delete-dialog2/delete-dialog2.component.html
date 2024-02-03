@@ -1,0 +1,9 @@
+<div *ngFor="let item of list.content" class="container">
+    <div class="textContainer">
+        <h2>Sei sicuro di voler salvare? Questa operazione sarà irreversibile</h2>
+    </div>
+    <div class="buttonContainer">
+        <button [mat-dialog-close] (click)="deleteRicetta(item.id)" id="si" mat-raised-button>Si</button>
+        <button id="no" (click)="onNoClick()" mat-raised-button>No</button>
+    </div>
+</div>

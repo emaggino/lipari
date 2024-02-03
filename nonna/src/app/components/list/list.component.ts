@@ -13,6 +13,11 @@ import { MatTableModule } from '@angular/material/table';
 import { FooterComponent } from '../footer/footer.component';
 import { HttpClient } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
+import { DeleteDialog2Component } from '../delete-dialog2/delete-dialog2.component';
+import { Dialog } from '@angular/cdk/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-list',
@@ -39,7 +44,8 @@ export class ListComponent implements OnInit{
   constructor(
     public loginService: LoginService,
     private activeRoute: ActivatedRoute,
-    private route : Router
+    private route : Router,
+    public dialog: MatDialog
   ) {}
 
   private listService = inject(ListService)
@@ -50,6 +56,25 @@ export class ListComponent implements OnInit{
       }
       this.loadList()
       let query = this.activeRoute.snapshot.paramMap.get('query')
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DeleteDialog2Component, {
+      width: '520px',
+      height: '300px',
+      data: {
+        route: this.route
+      }
+    })
+
+    dialogRef.afterClosed().subscribe((res) => {
+      // let recipeId = this.route.snapshot.paramMap.get('recipeId');
+      //   this.editService.editRicetta(this.ricettaObj, recipeId).subscribe((res) => {
+      //     console.log('response', res);
+      //     this.router.navigate(['/']);
+      //     alert('Ricetta modificata con successo!');
+      //   });
+    })
   }
 
   deleteRicetta(id: any){

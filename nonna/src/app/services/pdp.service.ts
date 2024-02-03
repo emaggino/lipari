@@ -8,7 +8,7 @@ export class PdpService {
 
   constructor(private http : HttpClient) { }
 
-  getById(id : string){
+  getById(id : any){
     return this.http.get(`http://localhost:8080/api/ricette/get/${id}`)
   }
 }

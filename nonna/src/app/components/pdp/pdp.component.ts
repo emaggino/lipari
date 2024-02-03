@@ -9,6 +9,10 @@ import { SecondiService } from '../../services/secondi.service';
 import { PdpService } from '../../services/pdp.service';
 import { EditComponent } from '../edit/edit.component';
 import { EditService } from '../../services/edit.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
+import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
+import { DeleteDialog2Component } from '../delete-dialog2/delete-dialog2.component';
 
 @Component({
   selector: 'app-pdp',
@@ -23,7 +27,8 @@ export class PdpComponent implements OnInit{
     private router: Router,
     private listService: ListService,
     private pdpService: PdpService,
-    private editService: EditService
+    private editService: EditService,
+    public dialog : MatDialog
   ) {}
 
   tipoPiatto = this.listService.tipoPortata;
@@ -37,6 +42,26 @@ export class PdpComponent implements OnInit{
       this.recipeData = res
     })
   }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DeleteDialog2Component, {
+      width: '550px',
+      height: '200px',
+      data: {
+        route: this.route
+      }
+    })
+
+    dialogRef.afterClosed().subscribe((res) => {
+      // let recipeId = this.route.snapshot.paramMap.get('recipeId');
+      //   this.editService.editRicetta(this.ricettaObj, recipeId).subscribe((res) => {
+      //     console.log('response', res);
+      //     this.router.navigate(['/']);
+      //     alert('Ricetta modificata con successo!');
+      //   });
+    })
+  }
+
 
   deleteRicetta(id: any){
     this.listService.deleteRicetta(id).subscribe((res) => {

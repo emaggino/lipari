@@ -13,6 +13,8 @@ import { AddService } from '../../services/add.service';
 import { EditService } from '../../services/edit.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
+import { MatSelectModule } from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
 
 @Component({
   selector: 'app-edit',
@@ -23,6 +25,8 @@ import { DialogComponent } from '../dialog/dialog.component';
     RouterModule,
     FormsModule,
     MatInputModule,
+    MatSelectModule,
+    MatMenuModule
   ],
   templateUrl: './edit.component.html',
   styleUrl: './edit.component.css',
@@ -32,7 +36,7 @@ export class EditComponent implements OnInit {
     public editService: EditService,
     private route: ActivatedRoute,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {}
