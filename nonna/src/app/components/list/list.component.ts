@@ -46,10 +46,11 @@ export class ListComponent implements OnInit{
     public loginService: LoginService,
     private activeRoute: ActivatedRoute,
     private route : Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public listService: ListService
   ) {}
 
-  private listService = inject(ListService)
+  
 
   ngOnInit(): void {
       if(localStorage.getItem('user')){
@@ -92,7 +93,7 @@ export class ListComponent implements OnInit{
   p: any
   list: any = []
   s: any
-  newList : any = []
+  public preferitiList : any[] = []
 
   
  
@@ -107,14 +108,11 @@ export class ListComponent implements OnInit{
     })
   }
 
-  addFavourites(){
-    
-  }
-
   submitSearch(val: string) {
     console.warn(val);
     this.route.navigate([`search/${val}`])
   }
+
 
 
 

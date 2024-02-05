@@ -53,7 +53,7 @@
             <button routerLink="/pdp/{{ item.id }}" class="btn" mat-button>
               Dettaglio
             </button>
-            <button routerLink="/pdp/{{ item.id }}" class="btn" mat-button>
+            <button (click)="this.listService.addToFavourites(item)" class="btn" mat-button>
               Preferiti
             </button>
           </div>
