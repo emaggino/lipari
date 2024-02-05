@@ -28,15 +28,27 @@
     </div>
     <div class="container2">
       <mat-form-field>
-        <p>Categoria:</p>
+        <p>Immagine:</p>
         <input
           type="text"
           matInput
-          placeholder="Preparazione"
+          placeholder="Immagine"
           required
           [(ngModel)]="this.ricettaObj.categoria.categoria"
           name="preparazione"
         />
+      </mat-form-field>
+    </div>
+    <div class="container2">
+      <mat-form-field>
+        <p>Categoria:</p>
+        <mat-label>Seleziona:</mat-label>
+        <select class="dropdown" matNativeControl [disabled]="disableSelect.value">
+          <option value=""></option>
+          <option formControlName="primo" [value]="this.ricettaObj.categoria.id">Primo</option>
+          <option formControlName="secondo" [value]="this.ricettaObj.categoria.id">Secondo</option>
+          <option formControlName="dolce" [value]="this.ricettaObj.categoria.id">Dolce</option>
+        </select>
       </mat-form-field>
     </div>
     <div class="container2">

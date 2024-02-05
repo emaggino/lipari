@@ -3,6 +3,7 @@ import { ActivatedRoute, Route, Router, RouterModule } from '@angular/router';
 import { SearchService } from '../../services/search.service';
 import { PdpService } from '../../services/pdp.service';
 import { NgFor } from '@angular/common';
+import { ListService } from '../../services/list.service';
 
 @Component({
   selector: 'app-search',
@@ -18,7 +19,8 @@ export class SearchComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private serachService: SearchService,
-    private pdpService: PdpService
+    private pdpService: PdpService,
+    public listService: ListService
   ) {}
 
   ngOnInit(): void {

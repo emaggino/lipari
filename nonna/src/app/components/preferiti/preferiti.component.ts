@@ -19,22 +19,22 @@ export class PreferitiComponent implements OnInit {
 
   ngOnInit(): void {
     if(localStorage.getItem('preferiti')){
-      this.preferitiList
+      this.list = JSON.parse(localStorage.getItem('preferiti') || '{}')
     }
-    console.log(this.listService.newList);
   }
+
+  list : any 
+
+  new: any
 
   preferitiList = this.listService.newList
 
 
-  loadList(){
-    let preferitiList = this.listService.newList
 
-  }
 
   removePreferiti(i: any){
     this.listService.removeFromFavourites(i)
-    //localStorage.removeItem('preferiti')
+    localStorage.removeItem('preferiti')
   }
   
 }

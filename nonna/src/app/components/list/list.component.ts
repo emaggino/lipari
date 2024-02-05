@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListService } from '../../services/list.service';
 import { NgFor, NgIf, NgSwitch } from '@angular/common';
 import { LoginService } from '../../services/login.service';
@@ -36,6 +36,7 @@ import { DialogComponent } from '../dialog/dialog.component';
     NgSwitch,
     FooterComponent,
     NgxPaginationModule,
+    ReactiveFormsModule
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
@@ -59,6 +60,11 @@ export class ListComponent implements OnInit {
   }
 
   role : any
+
+  convertToImage() {
+    const img = new Image()
+    img.src = `data:image/jpeg;base64,${img}`
+  }
 
   readLocalStorage(key: any) {
     return localStorage.getItem(key)
@@ -90,13 +96,14 @@ export class ListComponent implements OnInit {
     this.listService.deleteRicetta(id).subscribe((res) => {
       console.log('delete response', res);
     });
+    window.location.reload()
   }
 
   isAdmin = this.loginService.isAdmin;
 
   //http = inject(HttpClient)
   p: any;
-  list: any = [];
+  list: any= [];
   s: any;
   public preferitiList: any[] = [];
 
@@ -112,14 +119,21 @@ export class ListComponent implements OnInit {
     });
   }
 
+  search: boolean = false
+
   submitSearch(val: string) {
     console.warn(val);
-    this.route.navigate([`search/${val}`]);
+    this.listService.searchRecipe(val).subscribe((res) => {
+      this.list = res
+    })
+    
+    // this.listService.list = this.list
+    // this.search = true
   }
 
   preferiti(item: any) {
     this.listService.addToFavourites(item)
-    localStorage.setItem('preferiti', item)
+    localStorage.setItem('preferiti', JSON.stringify(item))
   }
 
   value: string = '';

@@ -12,7 +12,7 @@ export class ListService {
 
   p: any;
   s: any;
-  list: any = [];
+  list: any[] = [];
   id: any;
   newList: any[] = [];
 
@@ -28,8 +28,8 @@ export class ListService {
     return this.http.get(`http://localhost:8080/api/categorie/get/${this.id}`);
   }
 
-  searchRecipe() {
-    this.http.get(`http://localhost:8080/api/ricette/search?titolo=${query}`);
+  searchRecipe(titolo: string) {
+    return this.http.get(`http://localhost:8080/api/ricette/search?titolo=${titolo}`);
   }
 
   deleteRicetta(id: any) {
@@ -68,6 +68,10 @@ export class ListService {
       localStorage.setItem('preferiti', list)
     }
   }
+
+  // addToFavourites(id: any){
+  //   return this.http.post(` http://localhost:8080/api/utenti/favorites/${id}/add`, this.list)
+  // }
 
   removeFromFavourites(i: any){
     this.newList = this.newList.splice(this.newList.indexOf(i), 1)

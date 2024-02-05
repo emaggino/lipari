@@ -1,10 +1,10 @@
-<div class="container">
+<div *ngFor="let item of this.listService.list" class="container">
     <div class="imageContainer">
       <!-- <img src="{{}}" alt=""> -->
     </div>
     <div class="infoContainer">
       <div class="description">
-        <h2>Titolo</h2>
+        <h2>{{item}}</h2>
         <p>Ingredienti:</p>
         <p>Preparazione:</p>
         <p>Svolgimento:</p>

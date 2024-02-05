@@ -1,7 +1,7 @@
 import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { LoginService } from '../services/login.service';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
-  constructor(public service: LoginService) {
+  constructor(public service: LoginService, private router: Router) {
     // dispatchEvent(new CustomEvent('loginStatus', (event){
     //   if()
     // }))
@@ -43,6 +43,7 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('adminLogin')
     localStorage.removeItem('userLogin')
     localStorage.removeItem('accessToken')
+    window.location.reload()
   }
 
 }

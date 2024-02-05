@@ -1,12 +1,12 @@
 .container {
   width: 100%;
-  height: 100%;
+  height: 1300px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background-image: url("https://media.istockphoto.com/id/1081422898/it/foto/anatra-fritta-in-padella.jpg?s=2048x2048&w=is&k=20&c=4qKbocpCjpv__a1K_lVJuismTk1uzN1ntI0GDAmWOak=");
-  background-size: cover;
+  background-size:auto
 }
 
 .cardContainer {
@@ -15,6 +15,7 @@
   align-items: center;
   flex-direction: row;
   max-width: 1500px;
+  height: 100%;
 }
 
 .buttonContainer {
@@ -46,7 +47,7 @@
 
 .input {
   width: 400px;
-  margin-top: 100px;
+  margin-top: 10px;
 }
 
 .header-image {
