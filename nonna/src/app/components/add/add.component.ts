@@ -7,6 +7,7 @@ import { Router, RouterLink, RouterModule } from '@angular/router';
 import { AddService } from '../../services/add.service';
 import { MatSelect, MatSelectModule } from '@angular/material/select';
 import { ListService } from '../../services/list.service';
+import { Observable, Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-add',
@@ -24,7 +25,11 @@ import { ListService } from '../../services/list.service';
   styleUrl: './add.component.css',
 })
 export class AddComponent {
-  constructor(private listService: ListService, public addService: AddService, private router: Router) {}
+  constructor(
+    private listService: ListService,
+    public addService: AddService,
+    private router: Router
+  ) {}
 
   disableSelect = new FormControl(false);
 
@@ -63,17 +68,48 @@ export class AddComponent {
     // this.ricettaObj.categoria.id = Math.random()
   }
 
-  onFileChange(event: any) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
+  myImage!: Observable<any>;
+  base64code!: any;
 
-    reader.onloadend = () => {
-      const base64String = reader.result as string;
-      console.log(base64String);
-    };
+  onChange($event: Event) {
+    const target = $event.target as HTMLInputElement;
 
-    if (file) {
-      reader.readAsDataURL(file);
+    const file: File = (target.files as FileList)[0];
+
+    console.log(file);
+
+    this.convertToBase64(file);
+  }
+
+  convertToBase64(file: File) {
+    const observable = new Observable((subscriber: Subscriber<any>) => {
+      this.readFile(file, subscriber);
+    });
+
+    observable.subscribe((d) => {
+      console.log(d);
+      this.myImage = d
+    })
+  }
+
+  readFile(file: File, subscriber: Subscriber<any>) {
+    const filereader = new FileReader();
+
+    filereader.readAsDataURL(file);
+
+    filereader.onload = () => {
+      subscriber.next(filereader.result)
+
+      subscriber.complete()
     }
+
+
+    filereader.onerror = () => {
+      subscriber.error()
+      subscriber.complete()
+    }
+
+
+
   }
 }

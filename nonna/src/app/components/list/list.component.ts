@@ -126,7 +126,9 @@ export class ListComponent implements OnInit {
     this.listService.searchRecipe(val).subscribe((res) => {
       this.list = res
     })
-    
+    if(this.list){
+      this.route.navigate([`/search/${val}`])
+    }
     // this.listService.list = this.list
     // this.search = true
   }
