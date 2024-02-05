@@ -78,3 +78,9 @@
 .pagination {
   background-color: rgba(153, 170, 187, 0.721);
 }
+
+#add {
+  position: absolute;
+  top: 100px;
+  right: 100px;
+}

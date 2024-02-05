@@ -22,6 +22,7 @@
     >
       cerca
     </button>
+    <button id="add" *ngIf="isAdmin === true" routerLink="/add" class="btn" mat-button>Aggiungi Ricetta</button>
   </div>
 
   <div
@@ -53,13 +54,14 @@
             <button routerLink="/pdp/{{ item.id }}" class="btn" mat-button>
               Dettaglio
             </button>
-            <button (click)="preferiti(item.id)" class="btn" mat-button>
+            <button (click)="preferiti(item)" class="btn" mat-button>
               Preferiti
             </button>
           </div>
           <!-- <button class="btn" routerLink="/" mat-button>Back</button> -->
           <div class="adminButtonContainer">
             <button
+              *ngIf="isAdmin === true"
               id="editBtn"
               routerLink="/edit/{{ item.id }}"
               id="editBtn"
@@ -69,6 +71,7 @@
               Edit
             </button>
             <button
+            *ngIf="isAdmin === true"
               id="deleteBtn"
               class="btn"
               mat-button

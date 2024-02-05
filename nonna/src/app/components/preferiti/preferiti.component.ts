@@ -26,6 +26,12 @@ export class PreferitiComponent implements OnInit {
 
   preferitiList = this.listService.newList
 
+
+  loadList(){
+    let preferitiList = this.listService.newList
+
+  }
+
   removePreferiti(i: any){
     this.listService.removeFromFavourites(i)
     //localStorage.removeItem('preferiti')

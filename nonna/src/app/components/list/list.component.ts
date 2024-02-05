@@ -50,11 +50,18 @@ export class ListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (localStorage.getItem('user')) {
+    this.role = this.readLocalStorage('adminLogin')
+    if (localStorage.getItem('adminLogin')) {
       this.loginService.isAdmin = true;
     }
     this.loadList();
     let query = this.activeRoute.snapshot.paramMap.get('query');
+  }
+
+  role : any
+
+  readLocalStorage(key: any) {
+    return localStorage.getItem(key)
   }
 
   openDialog(id: any) {
