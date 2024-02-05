@@ -15,14 +15,14 @@ import { NgFor } from '@angular/common';
 export class DeleteDialog2Component implements OnInit {
   constructor(
     private router: Router,
-    private listService : ListService,
+    public listService : ListService,
     public dialog: MatDialog,
     public dialogRef: MatDialogRef<DeleteDialog2Component>,
     @Inject(MAT_DIALOG_DATA) public data: { route: ActivatedRoute },
   ) {}
 
   ngOnInit(): void {
-      this.loadList()
+    this.loadList()
   }
 
   deleteRicetta(id: any){
@@ -30,9 +30,8 @@ export class DeleteDialog2Component implements OnInit {
       console.log('delete response', res);
     })
     this.router.navigate(['/'])
-    
   }
-
+  newList : any[] = []
   list : any = []
   
   loadList() {

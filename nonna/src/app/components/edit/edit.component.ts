@@ -15,6 +15,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { MatSelectModule } from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
+import { ListService } from '../../services/list.service';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-edit',
@@ -26,7 +28,8 @@ import {MatMenuModule} from '@angular/material/menu';
     FormsModule,
     MatInputModule,
     MatSelectModule,
-    MatMenuModule
+    MatMenuModule,
+    NgFor
   ],
   templateUrl: './edit.component.html',
   styleUrl: './edit.component.css',
@@ -37,9 +40,11 @@ export class EditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     public dialog: MatDialog,
+    public listService: ListService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   ricettaObj = {
     titolo: '',

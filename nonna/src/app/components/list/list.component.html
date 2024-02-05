@@ -53,7 +53,7 @@
             <button routerLink="/pdp/{{ item.id }}" class="btn" mat-button>
               Dettaglio
             </button>
-            <button (click)="this.listService.addToFavourites(item)" class="btn" mat-button>
+            <button (click)="preferiti(item.id)" class="btn" mat-button>
               Preferiti
             </button>
           </div>
@@ -72,7 +72,7 @@
               id="deleteBtn"
               class="btn"
               mat-button
-              (click)="openDialog()"
+              (click)="openDialog(item.id)"
             >
               Delete
             </button>

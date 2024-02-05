@@ -19,7 +19,6 @@ import { DeleteDialog2Component } from '../delete-dialog2/delete-dialog2.compone
 import { Dialog } from '@angular/cdk/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 
-
 @Component({
   selector: 'app-list',
   standalone: true,
@@ -41,81 +40,80 @@ import { DialogComponent } from '../dialog/dialog.component';
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
 })
-export class ListComponent implements OnInit{
+export class ListComponent implements OnInit {
   constructor(
     public loginService: LoginService,
     private activeRoute: ActivatedRoute,
-    private route : Router,
+    private route: Router,
     public dialog: MatDialog,
     public listService: ListService
   ) {}
 
-  
-
   ngOnInit(): void {
-      if(localStorage.getItem('user')){
-        this.loginService.isAdmin = true
-      }
-      this.loadList()
-      let query = this.activeRoute.snapshot.paramMap.get('query')
+    if (localStorage.getItem('user')) {
+      this.loginService.isAdmin = true;
+    }
+    this.loadList();
+    let query = this.activeRoute.snapshot.paramMap.get('query');
   }
 
-  openDialog() {
+  openDialog(id: any) {
+    this.listService.dialogId = id;
     const dialogRef = this.dialog.open(DeleteDialog2Component, {
       width: '520px',
       height: '300px',
       data: {
-        route: this.route
-      }
-    })
+        route: this.route,
+      },
+    });
 
     dialogRef.afterClosed().subscribe((res) => {
-      // let recipeId = this.route.snapshot.paramMap.get('recipeId');
-      //   this.editService.editRicetta(this.ricettaObj, recipeId).subscribe((res) => {
-      //     console.log('response', res);
-      //     this.router.navigate(['/']);
-      //     alert('Ricetta modificata con successo!');
-      //   });
-    })
+      this.listService.getList().subscribe({
+        next: (list: any) => {
+          this.list = list;
+        },
+        error: (err) => {
+          console.log('error', err);
+        },
+      });
+    });
   }
 
-  deleteRicetta(id: any){
+  deleteRicetta(id: any) {
     this.listService.deleteRicetta(id).subscribe((res) => {
       console.log('delete response', res);
-    })
-    
+    });
   }
 
-  isAdmin = this.loginService.isAdmin
+  isAdmin = this.loginService.isAdmin;
 
+  //http = inject(HttpClient)
+  p: any;
+  list: any = [];
+  s: any;
+  public preferitiList: any[] = [];
 
-  //http = inject(HttpClient) 
-  p: any
-  list: any = []
-  s: any
-  public preferitiList : any[] = []
-
-  
- 
   loadList() {
     this.listService.getList().subscribe({
-      next : (list : any) => {
-        this.list = list
+      next: (list: any) => {
+        this.list = list;
         console.log('lista', list);
       },
-      error: (error) => {console.log('error', error);
-      }
-    })
+      error: (error) => {
+        console.log('error', error);
+      },
+    });
   }
 
   submitSearch(val: string) {
     console.warn(val);
-    this.route.navigate([`search/${val}`])
+    this.route.navigate([`search/${val}`]);
   }
 
-
-
-
+  preferiti(item: any) {
+    this.listService.addToFavourites(item)
+    localStorage.setItem('preferiti', item)
+  }
 
   value: string = '';
   isLogged = this.loginService.isLogged;
@@ -134,6 +132,4 @@ export class ListComponent implements OnInit{
   //   }
   //   console.log('item removed');
   // }
-
-  
 }

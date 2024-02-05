@@ -57,6 +57,8 @@ export class ListService {
     });
   }
 
+  dialogId : any
+
   addToFavourites(list: any) {
     if (this.newList.includes(list)) {
       alert('gia aggiunto');
@@ -68,7 +70,6 @@ export class ListService {
   }
 
   removeFromFavourites(i: any){
-    debugger
     this.newList = this.newList.splice(this.newList.indexOf(i), 1)
   }
 
