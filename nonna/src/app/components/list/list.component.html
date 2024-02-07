@@ -58,7 +58,7 @@
             <button routerLink="/pdp/{{ item.id }}" class="btn" mat-button>
               Dettaglio
             </button>
-            <button (click)="preferiti(item)" class="btn" mat-button>
+            <button *ngIf="isAdmin === true" (click)="preferiti(item)" class="btn" mat-button>
               Preferiti
             </button>
           </div>

@@ -13,9 +13,7 @@ import { LoginService } from '../services/login.service';
 })
 export class NavbarComponent implements OnInit {
   constructor(public service: LoginService, private router: Router) {
-    // dispatchEvent(new CustomEvent('loginStatus', (event){
-    //   if()
-    // }))
+    
   } 
 
   ngOnInit(): void {
@@ -44,6 +42,7 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('userLogin')
     localStorage.removeItem('accessToken')
     window.location.reload()
+    this.router.navigateByUrl('/')
   }
 
 }
