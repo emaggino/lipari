@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
   getData: any;
 
   isLogged: any;
-  isAdmin: any
+  isAdmin: any;
 
   onLogin() {
     this.loginService.login(this.loginObj).subscribe((res) => {
@@ -56,9 +56,12 @@ export class LoginComponent implements OnInit {
         );
         //this.isLogged = true;
         localStorage.setItem('userLogin', 'logged');
-      } 
-      
-      if (this.loginObj.username === 'admin' && this.loginObj.password === 'admin') {
+      }
+
+      if (
+        this.loginObj.username === 'admin' &&
+        this.loginObj.password === 'admin'
+      ) {
         this.loginService.isLogged = true;
         this.loginService.isAdmin = true;
         localStorage.setItem('accessToken', res.accessToken);
@@ -89,7 +92,7 @@ export class LoginComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    console.log('adminOninit',this.loginService.isAdmin);
+    console.log('adminOninit', this.loginService.isAdmin);
   }
 
   // onSubmit(form : NgForm){
