@@ -61,18 +61,6 @@ export class EditComponent implements OnInit {
 
   list: any
 
-  ricettaObj = {
-    titolo: '',
-    preparazione: '',
-    quantitaPersone: '',
-    ingredienti: '',
-    image: '',
-    categoria: {
-      id: 1,
-      categoria: '',
-    },
-  };
-
   loadList() {
     this.listService.getList().subscribe({
       next: (list: any) => {
@@ -85,9 +73,21 @@ export class EditComponent implements OnInit {
     });
   }
 
+  primo(){
+    this.list.categoria.id = 1
+  }
+
+  secondo(){
+    this.list.categoria = 2
+  }
+
+  dolce(){
+    this.list.categoria = 3
+  }
+
   editRicetta() {
     let recipeId = this.route.snapshot.paramMap.get('recipeId');
-    this.editService.editRicetta(this.ricettaObj, recipeId).subscribe((res) => {
+    this.editService.editRicetta(this.list, recipeId).subscribe((res) => {
       console.log('response', res);
       this.router.navigate(['/']);
       alert('Ricetta modificata con successo!');
@@ -133,7 +133,7 @@ export class EditComponent implements OnInit {
 
     observable.subscribe((d) => {
       console.log(d);
-      this.ricettaObj.image = d
+      this.list.image = d
     })
   }
 

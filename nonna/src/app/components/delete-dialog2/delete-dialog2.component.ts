@@ -28,8 +28,8 @@ export class DeleteDialog2Component implements OnInit {
   deleteRicetta(id: any){
     this.listService.deleteRicetta(id).subscribe((res) => {
       console.log('delete response', res);
-      alert('Ricetta eliminata con successo')
     })
+    alert('Ricetta eliminata con successo')
     this.router.navigate(['/'])
   }
   newList : any[] = []
