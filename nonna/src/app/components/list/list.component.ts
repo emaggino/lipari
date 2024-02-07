@@ -133,10 +133,14 @@ export class ListComponent implements OnInit {
     // this.search = true
   }
 
-  preferiti(item: any) {
-    this.listService.addToFavourites(item)
-    localStorage.setItem('preferiti', JSON.stringify(item))
-    alert('ricetta aggiunta ai preferiti')
+  // preferiti(item: any) {
+  //   this.listService.addToFavourites(item)
+  //   localStorage.setItem('preferiti', JSON.stringify(item))
+  //   alert('ricetta aggiunta ai preferiti')
+  // }
+
+  preferiti(item: any){
+    this.listService.preferiti(item)
   }
 
   value: string = '';

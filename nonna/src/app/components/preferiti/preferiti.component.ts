@@ -18,7 +18,7 @@ export class PreferitiComponent implements OnInit {
   constructor(public listService: ListService){}
 
   ngOnInit(): void {
-
+    console.log(this.preferitiList);
   }
 
   list : any 

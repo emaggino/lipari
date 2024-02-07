@@ -58,7 +58,7 @@
             <button routerLink="/pdp/{{ item.id }}" class="btn" mat-button>
               Dettaglio
             </button>
-            <button *ngIf="isLogged === true" (click)="preferiti(item)" class="btn" mat-button>
+            <button *ngIf="isLogged === true" (click)="preferiti(item.id)" class="btn" mat-button>
               Aggiungi a preferiti
             </button>
           </div>

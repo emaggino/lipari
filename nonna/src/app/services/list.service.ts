@@ -69,6 +69,23 @@ export class ListService {
     }
   }
 
+  aggiungiPreferiti(id: any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
+      }),
+    };
+    return this.http.post(` http://localhost:8080/api/utenti/favorites/${id}/add`, "id", httpOptions)
+  }
+
+  preferiti(item: any){
+    this.aggiungiPreferiti(item).subscribe((res) => {
+      this.newList.push(res)
+    })
+    alert('aggiunto ai preferiti')
+  }
+
   // addToFavourites(id: any){
   //   return this.http.post(` http://localhost:8080/api/utenti/favorites/${id}/add`, this.list)
   // }
