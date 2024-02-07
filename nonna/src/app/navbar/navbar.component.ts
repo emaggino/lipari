@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit {
 
   isAdmin = this.service.isAdmin
 
-  isLogged = localStorage.getItem('loginStatus')
+  isLogged = this.service.isLogged
 
   logOut() {
     this.service.isLogged = false

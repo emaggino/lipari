@@ -88,7 +88,7 @@ export class AddComponent {
 
     observable.subscribe((d) => {
       console.log(d);
-      this.myImage = d
+      this.ricettaObj.image= d
     })
   }
 

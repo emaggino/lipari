@@ -15,7 +15,7 @@
         <button (click)="logOut()" class="btn" mat-button>Logout</button>
       </div>
       <div>
-        <button routerLink="/preferiti" class="btn" mat-button>
+        <button *ngIf="this.service.isLogged == true" routerLink="/preferiti" class="btn" mat-button>
           Preferiti
         </button>
       </div>
