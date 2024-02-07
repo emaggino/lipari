@@ -14,7 +14,7 @@ import { ListService } from '../../services/list.service';
 })
 export class SearchComponent implements OnInit {
 
-  searchResult : any
+  searchResult : any [] = []
 
   constructor(
     private route: ActivatedRoute,
@@ -28,7 +28,7 @@ export class SearchComponent implements OnInit {
     console.log(this.searchResult);
 
     query && this.serachService.searchRecipe(query).subscribe((res) => {
-      this.searchResult = res
+      this.searchResult.push(res)
     })
   }
 }

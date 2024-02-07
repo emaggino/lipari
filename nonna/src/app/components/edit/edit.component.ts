@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormControl, FormsModule, NgForm } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -17,6 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
 import { ListService } from '../../services/list.service';
 import { NgFor } from '@angular/common';
+import { Observable, Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-edit',
@@ -35,6 +36,9 @@ import { NgFor } from '@angular/common';
   styleUrl: './edit.component.css',
 })
 export class EditComponent implements OnInit {
+
+  disableSelect = new FormControl(false);
+
   constructor(
     public editService: EditService,
     private route: ActivatedRoute,
@@ -84,5 +88,50 @@ export class EditComponent implements OnInit {
       //     alert('Ricetta modificata con successo!');
       //   });
     })
+  }
+
+  myImage!: Observable<any>;
+  base64code!: any;
+
+  onChange($event: Event) {
+    const target = $event.target as HTMLInputElement;
+
+    const file: File = (target.files as FileList)[0];
+
+    console.log(file);
+
+    this.convertToBase64(file);
+  }
+
+  convertToBase64(file: File) {
+    const observable = new Observable((subscriber: Subscriber<any>) => {
+      this.readFile(file, subscriber);
+    });
+
+    observable.subscribe((d) => {
+      console.log(d);
+      this.ricettaObj.image = d
+    })
+  }
+
+  readFile(file: File, subscriber: Subscriber<any>) {
+    const filereader = new FileReader();
+
+    filereader.readAsDataURL(file);
+
+    filereader.onload = () => {
+      subscriber.next(filereader.result)
+
+      subscriber.complete()
+    }
+
+
+    filereader.onerror = () => {
+      subscriber.error()
+      subscriber.complete()
+    }
+
+
+
   }
 }

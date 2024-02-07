@@ -9,6 +9,16 @@
     background-image: url("https://media.istockphoto.com/id/1081422898/it/foto/anatra-fritta-in-padella.jpg?s=2048x2048&w=is&k=20&c=4qKbocpCjpv__a1K_lVJuismTk1uzN1ntI0GDAmWOak=");
     background-size: cover;
   }
+
+  .dropdown {
+    width: 170px;
+  }
+
+  #imageContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
   
   .container2 {
     width: 400px;
