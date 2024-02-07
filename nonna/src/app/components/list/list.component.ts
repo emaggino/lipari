@@ -105,7 +105,7 @@ export class ListComponent implements OnInit {
   p: any;
   list: any= [];
   s: any;
-  public preferitiList: any[] = [];
+  public preferitiList: any;
 
   loadList() {
     this.listService.getList().subscribe({

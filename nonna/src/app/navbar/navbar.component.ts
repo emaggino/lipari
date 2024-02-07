@@ -1,7 +1,7 @@
 import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { LoginService } from '../services/login.service';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
-  constructor(public service: LoginService, private router: Router) {
+  constructor(public service: LoginService, private router: Router, public route: ActivatedRoute) {
     
   } 
 

@@ -18,9 +18,7 @@ export class PreferitiComponent implements OnInit {
   constructor(public listService: ListService){}
 
   ngOnInit(): void {
-    if(localStorage.getItem('preferiti')){
-      this.listService.newList = JSON.parse(localStorage.getItem('preferiti') || '{}')
-    }
+
   }
 
   list : any 
