@@ -65,7 +65,7 @@ export class ListComponent implements OnInit {
     search: new FormControl('')
   })
 
-  searchList: Array<any> = []
+  searchList: any[] = []
 
   newList : any[] = []
 
@@ -132,17 +132,7 @@ export class ListComponent implements OnInit {
 
   search: boolean = false
 
-  submitSearch(val: string) {
-    debugger
-    console.log(val);
-    this.listService.searchRecipe(val).subscribe((res) => {
-      console.log(res);
-    })
-    this.list = val
-    //window.location.reload()
-    // this.listService.list = this.list
-    // this.search = true
-  }
+  
 
   // preferiti(item: any) {
   //   this.listService.addToFavourites(item)

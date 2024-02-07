@@ -1,16 +1,71 @@
-<div *ngFor="let item of " class="container">
-    <div class="imageContainer">
-      <!-- <img src="{{}}" alt=""> -->
-    </div>
-    <div class="infoContainer">
-      <div class="description">
-        <h2>{{item}}</h2>
-        <p>Ingredienti:</p>
-        <p>Preparazione:</p>
-        <p>Svolgimento:</p>
-      </div>
-      <div>
-        <button class="btn" routerLink="/" mat-button>Back</button>
-      </div>
-    </div>
+<div class="container" *ngFor="
+let card of this.searchResult | paginate : { itemsPerPage: 2, currentPage: this.listService.p}
+">
+<div
+    class="cardContainer"
+    *ngFor="let item of card"
+  >
+    <ul >
+      <li>
+        <a class="aCard" routerLink="/pdp/{{ item.id }}">
+          <mat-card class="card">
+            <mat-card-header>
+              <div mat-card-avatar class="header-image"></div>
+              <mat-card-title>{{ item.titolo }}</mat-card-title>
+              <!-- <mat-card-subtitle>{{ item.categoria.categoria }}</mat-card-subtitle> -->
+            </mat-card-header>
+            <div class="text">
+              <mat-card-content>
+                <img class="image" src="{{ item.image }}" />
+                <p><span>Persone: </span> {{ item.quantitaPersone }}</p>
+                <p><span>Ingredienti: </span> {{ item.ingredienti }}</p>
+                <!-- <p><span>Categoria: </span> {{ item.categoria.categoria }}</p> -->
+              </mat-card-content>
+            </div>
+            <mat-card-actions> </mat-card-actions>
+          </mat-card>
+        </a>
+        <div class="buttonContainer">
+          <div class="innerButtonContainer">
+            <button routerLink="/pdp/{{ item.id }}" class="btn" mat-button>
+              Dettaglio
+            </button>
+            <button
+              *ngIf="isLogged === true"
+              (click)="this.listService.preferiti(item.id, item)"
+              class="btn"
+              mat-button
+            >
+              Aggiungi a preferiti
+            </button>
+          </div>
+          <!-- <button class="btn" routerLink="/" mat-button>Back</button> -->
+          <div class="adminButtonContainer">
+            <button
+              *ngIf="isAdmin === true"
+              id="editBtn"
+              routerLink="/edit/{{ item.id }}"
+              id="editBtn"
+              class="btn"
+              mat-button
+            >
+              Modifica
+            </button>
+            <button
+              *ngIf="isAdmin === true"
+              id="deleteBtn"
+              class="btn"
+              mat-button
+            >
+              Elimina
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
+</div>
+<pagination-controls
+class="pagination"
+(pageChange)="this.listService.p= $event"
+></pagination-controls>

@@ -34,31 +34,37 @@ export class ListService {
     );
   }
 
-  removePreferiti(id: any){
+  removePreferiti(id: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
       }),
     };
-    return this.http.delete(`http://localhost:8080/api/utenti/favorites/${id}/remove`, httpOptions)
+    return this.http.delete(
+      `http://localhost:8080/api/utenti/favorites/${id}/remove`,
+      httpOptions
+    );
   }
 
-  getPreferiti(){
+  getPreferiti() {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
       }),
     };
-    return this.http.get('http://localhost:8080/api/utenti/favorites  ', httpOptions)
+    return this.http.get(
+      'http://localhost:8080/api/utenti/favorites  ',
+      httpOptions
+    );
   }
 
   deleteRicetta(id: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
+        Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
       }),
     };
     return this.http.delete(
@@ -105,11 +111,25 @@ export class ListService {
     );
   }
 
-  rimuoviPreferiti(id: any){
+  rimuoviPreferiti(id: any) {
     this.removePreferiti(id).subscribe((res) => {
       console.log(res);
-    })
-    window.location.reload()
+    });
+    window.location.reload();
+  }
+
+  public searchList: any[] = [];
+
+  submitSearch(val: string) {
+    console.log(val);
+    this.searchRecipe(val).subscribe((res) => {
+      console.log('searchlist', res);
+        this.searchList.push(res);
+    });
+    console.log(this.searchList);
+    //window.location.reload()
+    // this.listService.list = this.list
+    // this.search = true
   }
 
   preferiti(id: any, item: any) {

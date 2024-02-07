@@ -18,7 +18,8 @@
       }
     </mat-form-field>
     <button
-      (click)="submitSearch(searchInput.value)"
+      routerLink="/search"
+      (click)="this.listService.submitSearch(searchInput.value)"
       class="searchButton"
       mat-button
       color="primary"

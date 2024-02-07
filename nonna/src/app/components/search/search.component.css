@@ -1,81 +1,91 @@
-/* .container {
+.container {
+  width: 100%;
+  height: 1200px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
+  flex-direction: column;
+  background-image: url("https://media.istockphoto.com/id/1081422898/it/foto/anatra-fritta-in-padella.jpg?s=2048x2048&w=is&k=20&c=4qKbocpCjpv__a1K_lVJuismTk1uzN1ntI0GDAmWOak=");
+  background-size:auto
 }
 
-.info > ul > li {
-  list-style: none;
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  max-width: 1500px;
+  height: 100%;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.text {
+  width: 300px;
+  color: aliceblue;
+  border-bottom: none;
 }
 
 .img {
-  margin-right: 100px;
-  width: 300px;
-  height: 500px;
+  height: 200px;
 }
 
-.info {
-  width: 500px;
-  height: 300px;
-  font-size: 20px;
+.cardContainer > ul > li {
+  list-style-type: none;
+}
+
+
+.card {
+  max-width: 300px;
+  margin: 10px;
+  background-color: rgba(64, 101, 133, 0.812);
+  color: aliceblue;
+}
+
+.input {
+  width: 400px;
+  margin-top: 10px;
+}
+
+.image{
+  max-width: 250px;
+}
+
+.header-image {
+  background-image: url("https://yt3.googleusercontent.com/jOXpwaAw_5kOooNikWmuHiNC2buSdgeuZTkPJpxTFdrVZE8AQegxus3hQNLnoqP4iT4hZoGj=s900-c-k-c0x00ffffff-no-rj");
+  background-size: cover;
 }
 
 .btn {
+  margin: 10px;
   background-color: rgb(64, 101, 133);
   color: aliceblue;
-} */
+}
 
-.container {
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-image: url("https://media.istockphoto.com/id/1081422898/it/foto/anatra-fritta-in-padella.jpg?s=2048x2048&w=is&k=20&c=4qKbocpCjpv__a1K_lVJuismTk1uzN1ntI0GDAmWOak=");
-    background-size: cover;
-  }
-  
-  .imageContainer {
-    background-color: rgba(64, 101, 133, 0.918);
-    border-radius: 4%;
-  }
-  
-  .imageContainer > img {
-    width: 500px;
-    padding: 50px;
-  }
-  
-  .infoContainer {
-    margin: -10px
-  }
-  
-  .description {
-    width: 600px;
-    background-color: rgba(64, 101, 133, 0.873);
-    color: aliceblue;
-    border-radius: 4%;
-  }
-  
-  .description > p {
-    font-size: large;
-    font-style: italic;
-    padding: 10px;
-  }
-  
-  .description > h2 {
-    font-size: large;
-    font-style: italic;
-    padding-left: 10px;
-    padding-top: 20px;
-  }
-  
-  .description > h1 {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
-  
-  .btn {
-    color: aliceblue;
-    background-color: rgb(64, 101, 133);
-  }
-  
+.searchButton {
+  height: 57px;
+  width: 100px;
+  background-color: rgb(64, 101, 133);
+  color: aliceblue;
+}
+
+#editBtn {
+  background-color: rgba(174, 174, 25, 0.904);
+}
+
+#deleteBtn{
+  background-color: rgba(166, 20, 20, 0.915);
+}
+
+.pagination {
+  background-color: rgba(153, 170, 187, 0.721);
+}
+
+#add {
+  position: absolute;
+  top: 100px;
+  right: 100px;
+}
