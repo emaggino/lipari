@@ -59,7 +59,7 @@
               Dettaglio
             </button>
             <button *ngIf="isLogged === true" (click)="preferiti(item)" class="btn" mat-button>
-              Preferiti
+              Aggiungi a preferiti
             </button>
           </div>
           <!-- <button class="btn" routerLink="/" mat-button>Back</button> -->
@@ -72,7 +72,7 @@
               class="btn"
               mat-button
             >
-              Edit
+              Modifica
             </button>
             <button
               *ngIf="isAdmin === true"
@@ -81,7 +81,7 @@
               mat-button
               (click)="openDialog(item.id)"
             >
-              Delete
+              Elimina
             </button>
           </div>
         </div>

@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { ListService } from '../../services/list.service';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { SecondiService } from '../../services/secondi.service';
 import { PdpService } from '../../services/pdp.service';
 import { EditComponent } from '../edit/edit.component';
@@ -17,15 +17,16 @@ import { DeleteDialog2Component } from '../delete-dialog2/delete-dialog2.compone
 @Component({
   selector: 'app-pdp',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, RouterModule, NgFor,],
+  imports: [MatCardModule, MatButtonModule, RouterModule, NgFor, NgIf],
   templateUrl: './pdp.component.html',
   styleUrl: './pdp.component.css',
 })
 export class PdpComponent implements OnInit{
   constructor(
+    public loginService: LoginService,
     private route: ActivatedRoute,
     private router: Router,
-    private listService: ListService,
+    public listService: ListService,
     private pdpService: PdpService,
     private editService: EditService,
     public dialog : MatDialog

@@ -136,6 +136,7 @@ export class ListComponent implements OnInit {
   preferiti(item: any) {
     this.listService.addToFavourites(item)
     localStorage.setItem('preferiti', JSON.stringify(item))
+    alert('ricetta aggiunta ai preferiti')
   }
 
   value: string = '';
