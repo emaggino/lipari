@@ -59,6 +59,8 @@ export class ListComponent implements OnInit {
     let query = this.activeRoute.snapshot.paramMap.get('query');
   }
 
+  newList : any[] = []
+
   role : any
 
   convertToImage() {
@@ -138,10 +140,6 @@ export class ListComponent implements OnInit {
   //   localStorage.setItem('preferiti', JSON.stringify(item))
   //   alert('ricetta aggiunta ai preferiti')
   // }
-
-  preferiti(item: any){
-    this.listService.preferiti(item)
-  }
 
   value: string = '';
   isLogged = this.loginService.isLogged;

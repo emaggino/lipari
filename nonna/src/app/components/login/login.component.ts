@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
       ) {
         this.loginService.isLogged = true;
         this.route.navigate(['/']);
-        localStorage.setItem('accesstoken', res.accessToken)
+        localStorage.setItem('accessToken', res.accessToken)
         alert('sei loggato come user');
         localStorage.setItem(
           'user',

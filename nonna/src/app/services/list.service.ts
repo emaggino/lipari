@@ -29,7 +29,29 @@ export class ListService {
   }
 
   searchRecipe(titolo: string) {
-    return this.http.get(`http://localhost:8080/api/ricette/search?titolo=${titolo}`);
+    return this.http.get(
+      `http://localhost:8080/api/ricette/search?titolo=${titolo}`
+    );
+  }
+
+  removePreferiti(id: any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
+      }),
+    };
+    return this.http.delete(`http://localhost:8080/api/utenti/favorites/${id}/remove`, httpOptions)
+  }
+
+  getPreferiti(){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
+      }),
+    };
+    return this.http.get('http://localhost:8080/api/utenti/favorites  ', httpOptions)
   }
 
   deleteRicetta(id: any) {
@@ -57,7 +79,7 @@ export class ListService {
     });
   }
 
-  dialogId : any
+  dialogId: any;
 
   addToFavourites(list: any) {
     if (this.newList.includes(list)) {
@@ -65,33 +87,49 @@ export class ListService {
     } else {
       this.newList.push(list);
       console.log('preferiti', this.newList);
-      localStorage.setItem('preferiti', list)
+      localStorage.setItem('preferiti', list);
     }
   }
 
-  aggiungiPreferiti(id: any){
+  aggiungiPreferiti(id: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
       }),
     };
-    return this.http.post(` http://localhost:8080/api/utenti/favorites/${id}/add`, "id", httpOptions)
+    return this.http.post(
+      ` http://localhost:8080/api/utenti/favorites/${id}/add`,
+      id,
+      httpOptions
+    );
   }
 
-  preferiti(item: any){
-    this.aggiungiPreferiti(item).subscribe((res) => {
-      this.newList.push(res)
+  rimuoviPreferiti(id: any){
+    this.removePreferiti(id).subscribe((res) => {
+      console.log(res);
     })
-    alert('aggiunto ai preferiti')
+  }
+
+  preferiti(id: any, item: any) {
+    this.aggiungiPreferiti(id).subscribe((res) => {
+      console.log(res);
+    });
+    if (this.newList.includes(item)) {
+      alert('Ricetta già aggiunta ai preferiti');
+    } else {
+      this.newList.push(item);
+      alert('aggiunto ai preferiti');
+      console.log(this.newList);
+    }
   }
 
   // addToFavourites(id: any){
   //   return this.http.post(` http://localhost:8080/api/utenti/favorites/${id}/add`, this.list)
   // }
 
-  removeFromFavourites(i: any){
-    this.newList = this.newList.splice(this.newList.indexOf(i), 1)
+  removeFromFavourites(i: any) {
+    this.newList = this.newList.splice(this.newList.indexOf(i), 1);
   }
 
   // preferiti(){

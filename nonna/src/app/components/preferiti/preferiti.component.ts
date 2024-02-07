@@ -17,8 +17,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 export class PreferitiComponent implements OnInit {
   constructor(public listService: ListService){}
 
-  ngOnInit(): void {
-    console.log(this.preferitiList);
+  ngOnInit(): void {  
+    this.loadPreferiti()
   }
 
   list : any 
@@ -27,12 +27,18 @@ export class PreferitiComponent implements OnInit {
 
   preferitiList = this.listService.newList
 
+  loadPreferiti(){
+    this.listService.getPreferiti().subscribe({
+      next: (list: any) => {
+        this.list = list
+        console.log('lista preferiti', list);
 
-
-
-  removePreferiti(i: any){
-    this.listService.removeFromFavourites(i)
-    localStorage.removeItem('preferiti')
+      },
+      error: (error) => {
+        console.log('error', error);
+      },
+    })
   }
+
   
 }

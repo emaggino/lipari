@@ -2,7 +2,7 @@
   <div
     class="cardContainer"
     *ngFor="
-      let item of preferitiList
+      let item of list
         | paginate : { itemsPerPage: 2, currentPage: this.listService.p }
     "
   >
@@ -25,7 +25,7 @@
           </mat-card>
         </a>
         <button
-          (click)="removePreferiti(item)"
+          (click)="this.listService.rimuoviPreferiti(item)"
           class="btn"
           mat-button
         >

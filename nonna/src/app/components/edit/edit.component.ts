@@ -18,6 +18,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { ListService } from '../../services/list.service';
 import { NgFor } from '@angular/common';
 import { Observable, Subscriber } from 'rxjs';
+import { PdpService } from '../../services/pdp.service';
 
 @Component({
   selector: 'app-edit',
@@ -44,11 +45,21 @@ export class EditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     public dialog: MatDialog,
-    public listService: ListService
+    public listService: ListService,
+    public pdpService: PdpService
   ) {}
 
   ngOnInit(): void {
+    let recipeId = this.route.snapshot.paramMap.get('recipeId')
+    console.log(recipeId);
+    recipeId && this.pdpService.getById(recipeId).subscribe((res) => {
+      console.log(res);
+      this.list = res
+    })
+    console.log(this.list);
   }
+
+  list: any
 
   ricettaObj = {
     titolo: '',
@@ -61,6 +72,18 @@ export class EditComponent implements OnInit {
       categoria: '',
     },
   };
+
+  loadList() {
+    this.listService.getList().subscribe({
+      next: (list: any) => {
+        this.list = list;
+        console.log('lista', list);
+      },
+      error: (error) => {
+        console.log('error', error);
+      },
+    });
+  }
 
   editRicetta() {
     let recipeId = this.route.snapshot.paramMap.get('recipeId');

@@ -6,7 +6,7 @@
           <input
             type="text"
             matInput
-            placeholder="Titolo"
+            placeholder="{{list.titolo}}"
             required
             [(ngModel)]="this.ricettaObj.titolo"
             name="titolo"
@@ -19,7 +19,7 @@
           <input
             type="text"
             matInput
-            placeholder="Preparazione"
+            placeholder="{{list.preparazione}}"
             required
             [(ngModel)]="this.ricettaObj.preparazione"
             name="preparazione"
@@ -31,9 +31,8 @@
         <input
           type="file"
           (change)="onChange($event)"
-          placeholder="Immagine"
+          placeholder="{{list.image}}"
           required
-          [(ngModel)]="this.ricettaObj.categoria.categoria"
           name="preparazione"
         />
     </div>
@@ -55,7 +54,7 @@
             class="text"
             type="text"
             matInput
-            placeholder="Ingredienti"
+            placeholder="{{list.ingredienti}}"
             required
             [(ngModel)]="this.ricettaObj.ingredienti"
             name="ingredienti"
@@ -68,7 +67,7 @@
           <p>Quantità Persone:</p>
           <input
             type="text"
-            placeholder="Quantità persone"
+            placeholder="{{list.quantitaPersone}}"
             [(ngModel)]="this.ricettaObj.quantitaPersone"
             name="quantitaPersone"
           />
