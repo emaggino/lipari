@@ -109,6 +109,7 @@ export class ListService {
     this.removePreferiti(id).subscribe((res) => {
       console.log(res);
     })
+    window.location.reload()
   }
 
   preferiti(id: any, item: any) {

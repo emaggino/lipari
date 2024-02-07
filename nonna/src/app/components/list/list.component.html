@@ -1,21 +1,30 @@
 <div class="container">
   <div class="inputContainer">
     <mat-form-field class="input">
-      <input
-        #searchInput
-        formControlName="search"
-        matInput
-        placeholder="Cerca"
-        type="text"
-        [(ngModel)]="value"
-      />
+      <form [formGroup]="searchForm">
+        <input
+          #searchInput
+          formControlName="search"
+          matInput
+          placeholder="Cerca"
+          type="text"
+          [(ngModel)]="value"
+        />
+      </form>
       @if (value) {
       <button matSuffix mat-icon-button aria-label="Clear" (click)="value = ''">
         <mat-icon>close</mat-icon>
       </button>
       }
     </mat-form-field>
-    <button (click)="submitSearch(searchInput.value)" class="searchButton" mat-button color="primary">cerca</button>
+    <button
+      (click)="submitSearch(searchInput.value)"
+      class="searchButton"
+      mat-button
+      color="primary"
+    >
+      cerca
+    </button>
     <button
       id="add"
       *ngIf="isAdmin === true"
@@ -26,6 +35,12 @@
       Aggiungi Ricetta
     </button>
   </div>
+
+  <ng-container *ngIf="searchList.length; else notFound">
+    <div></div>
+  </ng-container>
+
+  <ng-template #notFound></ng-template>
 
   <div
     class="cardContainer"
@@ -44,7 +59,7 @@
             </mat-card-header>
             <div class="text">
               <mat-card-content>
-                <img class="image" src="{{item.image}}">
+                <img class="image" src="{{ item.image }}" />
                 <p><span>Persone: </span> {{ item.quantitaPersone }}</p>
                 <p><span>Ingredienti: </span> {{ item.ingredienti }}</p>
                 <!-- <p><span>Categoria: </span> {{ item.categoria.categoria }}</p> -->
@@ -58,7 +73,12 @@
             <button routerLink="/pdp/{{ item.id }}" class="btn" mat-button>
               Dettaglio
             </button>
-            <button *ngIf="isLogged === true" (click)="this.listService.preferiti(item.id, item)" class="btn" mat-button>
+            <button
+              *ngIf="isLogged === true"
+              (click)="this.listService.preferiti(item.id, item)"
+              class="btn"
+              mat-button
+            >
               Aggiungi a preferiti
             </button>
           </div>

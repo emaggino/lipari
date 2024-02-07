@@ -18,6 +18,7 @@ import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
 import { DeleteDialog2Component } from '../delete-dialog2/delete-dialog2.component';
 import { Dialog } from '@angular/cdk/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -48,7 +49,8 @@ export class ListComponent implements OnInit {
     private route: Router,
     public dialog: MatDialog,
     public listService: ListService
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.role = this.readLocalStorage('adminLogin')
@@ -59,9 +61,16 @@ export class ListComponent implements OnInit {
     let query = this.activeRoute.snapshot.paramMap.get('query');
   }
 
+  searchForm: FormGroup  = new FormGroup({
+    search: new FormControl('')
+  })
+
+  searchList: Array<any> = []
+
   newList : any[] = []
 
   role : any
+
 
   convertToImage() {
     const img = new Image()
@@ -105,7 +114,7 @@ export class ListComponent implements OnInit {
 
   //http = inject(HttpClient)
   p: any;
-  list: any= [];
+  public list: any= [];
   s: any;
   public preferitiList: any;
 
@@ -124,13 +133,13 @@ export class ListComponent implements OnInit {
   search: boolean = false
 
   submitSearch(val: string) {
-    console.warn(val);
+    debugger
+    console.log(val);
     this.listService.searchRecipe(val).subscribe((res) => {
-      this.list = res
+      console.log(res);
     })
-    if(this.list){
-      this.route.navigate([`/search/${val}`])
-    }
+    this.list = val
+    //window.location.reload()
     // this.listService.list = this.list
     // this.search = true
   }
