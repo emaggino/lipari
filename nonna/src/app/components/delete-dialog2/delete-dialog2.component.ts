@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogClose, MatDialogRef } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ListService } from '../../services/list.service';
 import { MatButtonModule } from '@angular/material/button';
 import { NgFor } from '@angular/common';
@@ -8,7 +8,7 @@ import { NgFor } from '@angular/common';
 @Component({
   selector: 'app-delete-dialog2',
   standalone: true,
-  imports: [MatDialogClose, MatButtonModule, NgFor],
+  imports: [MatDialogClose, MatButtonModule, NgFor, RouterLink],
   templateUrl: './delete-dialog2.component.html',
   styleUrl: './delete-dialog2.component.css',
 })

@@ -40,8 +40,11 @@ export class SearchComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('searchlist search', this.searchResult);
-    console.log('searchresult', this.searchResult);
+    console.log(this.loginService.isAdmin);
+    if(localStorage.getItem('userLogin')){
+      this.loginService.isAdmin = false
+    }
+    
   }
 
   searchList: any = this.listService.searchList;
