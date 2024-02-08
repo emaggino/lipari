@@ -46,7 +46,7 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('adminLogin')
     localStorage.removeItem('userLogin')
     localStorage.removeItem('accessToken')
-    this.router.navigate(['/'])
+    window.location.href = 'http://localhost:4200/'
   }
 
 }

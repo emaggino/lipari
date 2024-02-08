@@ -13,6 +13,18 @@
     justify-content: flex-end;
 }
 
+.btn::before {
+    background: transparent;
+    transform: translateX(-100);
+    transition: 0.6s;
+    position: absolute;
+  }
+  
+  .btn:hover{
+    background: rgb(64, 101, 133);
+    box-shadow: 0 0 20px 5px aliceblue;
+  }
+
 .btn {
     margin-right: 20px;
     background-color: aliceblue;
@@ -22,7 +34,7 @@
 
 .img {
     position: absolute;
-    top: 1px;
+    top: 0px;
     right: 650px;
     color: aliceblue;
     width: 250px;
