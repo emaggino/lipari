@@ -21,7 +21,9 @@
 }
 
 .img {
-    margin-right: 500px;
+    position: absolute;
+    top: 1px;
+    right: 650px;
     color: aliceblue;
     width: 250px;
 }
