@@ -112,6 +112,7 @@ export class ListComponent implements OnInit {
 
   isAdmin = this.loginService.isAdmin;
 
+
   //http = inject(HttpClient)
   p: any;
   public list: any= [];

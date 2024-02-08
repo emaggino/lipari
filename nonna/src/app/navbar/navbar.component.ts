@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { LoginService } from '../services/login.service';
+import { ListService } from '../services/list.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,7 @@ import { LoginService } from '../services/login.service';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
-  constructor(public service: LoginService, private router: Router, public route: ActivatedRoute) {
+  constructor(public service: LoginService, private router: Router, public route: ActivatedRoute, private listService: ListService) {
     
   } 
 
@@ -33,6 +34,10 @@ export class NavbarComponent implements OnInit {
   isAdmin = this.service.isAdmin
 
   isLogged = this.service.isLogged
+
+  clearArray(){
+    this.listService.searchList = []
+  }
 
   logOut() {
     this.service.isLogged = false
