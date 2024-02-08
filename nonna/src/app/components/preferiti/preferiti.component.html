@@ -17,6 +17,7 @@
             </mat-card-header>
             <div class="text">
               <mat-card-content>
+                <img class="image" src="{{ item.image }}" />
                 <p><span>Persone: </span> {{ item.quantitaPersone }}</p>
                 <p><span>Ingredienti: </span> {{ item.ingredienti }}</p>
               </mat-card-content>
@@ -35,8 +36,8 @@
     </ul>
   </div>
   
-  <div class="container" *ngIf="this.list.length == 0">
-    <div class="container2">
+  <div class="container2" *ngIf="this.list.length == 0">
+    <div class="containerPreferiti">
       <h2>Non hai ancora aggiunto niente ai preferiti!</h2>
     </div>
   </div>

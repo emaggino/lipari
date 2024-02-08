@@ -37,6 +37,7 @@ export class NavbarComponent implements OnInit {
 
   clearArray(){
     this.listService.searchList = []
+    window.location.href = 'http://localhost:4200/'
   }
 
   logOut() {

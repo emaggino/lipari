@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  height: 100%;
+  height: 1300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,13 +74,20 @@
 }
 
 .container2{
+  position: absolute;
+  top: 120px;
+  height: 400px;
+}
+
+.containerPreferiti{
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 5%;
-  height: 100px;
+  height: 70px;
   width: 450px;
   background-color: rgba(64, 101, 133, 0.91);
+  color: aliceblue;
 }
 
 .container2 > h2{
