@@ -34,11 +34,17 @@
       </li>
     </ul>
   </div>
+  
+  <div class="container" *ngIf="this.list.length == 0">
+    <div class="container2">
+      <h2>Non hai ancora aggiunto niente ai preferiti!</h2>
+    </div>
+  </div>
+  
   <pagination-controls
     class="pagination"
     (pageChange)="this.listService.p = $event"
   ></pagination-controls>
-
   <!-- <ul>
       <div *ngFor="let tipo of tipoPiatto; let i = index" id="ozi" class="cardContainer">
         <li *ngFor="let spec of tipo.tipo; let i = index">

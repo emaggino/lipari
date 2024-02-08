@@ -56,7 +56,7 @@ export class ListService {
       }),
     };
     return this.http.get(
-      'http://localhost:8080/api/utenti/favorites  ',
+      'http://localhost:8080/api/utenti/favorites',
       httpOptions
     );
   }

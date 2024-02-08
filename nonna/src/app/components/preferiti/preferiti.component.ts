@@ -4,13 +4,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ListService } from '../../services/list.service';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-preferiti',
   standalone: true,
-  imports: [MatFormFieldModule, MatButtonModule, MatCardModule, RouterLink, NgFor, NgxPaginationModule],
+  imports: [MatFormFieldModule, MatButtonModule, MatCardModule, RouterLink, NgFor, NgxPaginationModule, NgIf],
   templateUrl: './preferiti.component.html',
   styleUrl: './preferiti.component.css'
 })

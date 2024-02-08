@@ -60,6 +60,20 @@
   color: aliceblue;
 }
 
+.container2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5%;
+  height: 100px;
+  width: 450px;
+  background-color: rgba(64, 101, 133, 0.91);
+}
+
+.container2 > h2{
+  color: aliceblue;
+}
+
 .searchButton {
   height: 57px;
   width: 100px;
