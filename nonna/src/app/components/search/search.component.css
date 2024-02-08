@@ -17,6 +17,21 @@
   max-width: 1500px;
   height: 100%;
 }
+.container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 100px;
+  background-color:  rgba(64, 101, 133, 0.812);
+  border-radius: 5%;
+  height: 100px;
+  width: 500px;
+}
+
+.container2 > h2 {
+  color: aliceblue;
+}
 
 .buttonContainer {
   display: flex;

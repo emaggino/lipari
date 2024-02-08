@@ -2,6 +2,7 @@ import { query } from '@angular/animations';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable, inject } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 //const BASE_URL = `http://localhost:8080/api/ricette/lista?page=${this.p}&size=2`;
 @Injectable({
@@ -16,7 +17,7 @@ export class ListService {
   id: any;
   newList: any[] = [];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   getList() {
     return this.http.get(
@@ -118,15 +119,21 @@ export class ListService {
     window.location.reload();
   }
 
-  public searchList: any[] = [];
+  public searchList: any = [];
+
+  
 
   submitSearch(val: string) {
     console.log(val);
-    this.searchRecipe(val).subscribe((res) => {
-      console.log('searchlist', res);
-        this.searchList.push(res);
-    });
-    console.log(this.searchList);
+    if(val === ''){
+      alert('Il campo cerca non può essere vuoto')
+    }else{
+      this.searchRecipe(val).subscribe((res) => {
+        console.log('searchlist', res);
+        this.searchList = res
+        this.router.navigate(['/search']);
+      });
+    }
     //window.location.reload()
     // this.listService.list = this.list
     // this.search = true

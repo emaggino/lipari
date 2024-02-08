@@ -4,7 +4,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { ListService } from '../../services/list.service';
 import { NgFor, NgIf, NgSwitch } from '@angular/common';
 import { LoginService } from '../../services/login.service';
@@ -37,7 +42,7 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
     NgSwitch,
     FooterComponent,
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
@@ -49,36 +54,35 @@ export class ListComponent implements OnInit {
     private route: Router,
     public dialog: MatDialog,
     public listService: ListService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
-    this.role = this.readLocalStorage('adminLogin')
+    this.role = this.readLocalStorage('adminLogin');
     if (localStorage.getItem('adminLogin')) {
       this.loginService.isAdmin = true;
     }
     this.loadList();
+    console.log('searchList',this.searchList);
     let query = this.activeRoute.snapshot.paramMap.get('query');
   }
 
-  searchForm: FormGroup  = new FormGroup({
-    search: new FormControl('')
-  })
+  searchForm: FormGroup = new FormGroup({
+    search: new FormControl(''),
+  });
 
-  searchList: any[] = []
+  searchList: any[] = [];
 
-  newList : any[] = []
+  newList: any[] = [];
 
-  role : any
-
+  role: any;
 
   convertToImage() {
-    const img = new Image()
-    img.src = `data:image/jpeg;base64,${img}`
+    const img = new Image();
+    img.src = `data:image/jpeg;base64,${img}`;
   }
 
   readLocalStorage(key: any) {
-    return localStorage.getItem(key)
+    return localStorage.getItem(key);
   }
 
   openDialog(id: any) {
@@ -107,23 +111,22 @@ export class ListComponent implements OnInit {
     this.listService.deleteRicetta(id).subscribe((res) => {
       console.log('delete response', res);
     });
-    window.location.reload()
+    window.location.reload();
   }
 
   isAdmin = this.loginService.isAdmin;
 
-
   //http = inject(HttpClient)
   p: any;
-  public list: any= [];
+  public list: any = [];
   s: any;
   public preferitiList: any;
 
   loadList() {
     this.listService.getList().subscribe({
       next: (list: any) => {
-        this.list = list;
-        console.log('lista', list);
+        this.list = list
+        console.log('lista', list.content);
       },
       error: (error) => {
         console.log('error', error);
@@ -131,9 +134,23 @@ export class ListComponent implements OnInit {
     });
   }
 
-  search: boolean = false
+  // submitSearch(val: string) {
+  //   console.log(val);
+  //   // if(this.list.content.filter((i: any) => i.titolo === val)){
+  //     this.listService.searchRecipe(val).subscribe((res) => {
+  //       console.log('searchlist', res);
+  //       this.searchList.push(res);
+  //       this.route.navigate(['/search']);
+  //     });
+  //   // }else{
+  //   //   alert('no')
+  //   // }
+  //   //window.location.reload()
+  //   // this.listService.list = this.list
+  //   // this.search = true
+  // }
 
-  
+  search: boolean = false;
 
   // preferiti(item: any) {
   //   this.listService.addToFavourites(item)
