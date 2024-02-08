@@ -45,6 +45,9 @@ export class AddComponent {
     },
   };
 
+  //ricettaObj : Ricetta = {}
+
+
   aggiungiRicetta() {
     this.addService.creaRicetta(this.ricettaObj).subscribe((res) => {
       console.log('response:', res);
