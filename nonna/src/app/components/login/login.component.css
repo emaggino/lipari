@@ -10,7 +10,11 @@
   background-size: cover;
 }
 
-.container2 {
+.container2{
+  margin-top: 100px;
+}
+
+.fieldContainer{
   width: 400px;
   height: 170px;
   margin-left: 8px;

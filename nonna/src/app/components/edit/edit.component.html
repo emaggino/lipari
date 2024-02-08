@@ -1,86 +1,94 @@
 <form>
   <div class="container">
-    <div class="container2">
-      <mat-form-field>
-        <p>Titolo:</p>
+    <div class="fieldContainer">
+      <div class="container2">
+        <mat-form-field>
+          <p>Titolo:</p>
+          <input
+            type="text"
+            matInput
+            placeholder="{{ list.titolo }}"
+            required
+            [(ngModel)]="this.list.titolo"
+            name="titolo"
+          />
+        </mat-form-field>
+      </div>
+      <div class="container2">
+        <mat-form-field>
+          <p>Preparazione:</p>
+          <input
+            type="text"
+            matInput
+            placeholder="{{ list.preparazione }}"
+            required
+            [(ngModel)]="this.list.preparazione"
+            name="preparazione"
+          />
+        </mat-form-field>
+      </div>
+      <div id="imageContainer" class="container2">
+        <p>Immagine:</p>
         <input
-          type="text"
-          matInput
-          placeholder="{{ list.titolo }}"
+          type="file"
+          (change)="onChange($event)"
           required
-          [(ngModel)]="this.list.titolo"
-          name="titolo"
+          name="image"
+          [(ngModel)]="this.list.image"
         />
-      </mat-form-field>
-    </div>
-    <div class="container2">
-      <mat-form-field>
-        <p>Preparazione:</p>
-        <input
-          type="text"
-          matInput
-          placeholder="{{ list.preparazione }}"
-          required
-          [(ngModel)]="this.list.preparazione"
-          name="preparazione"
-        />
-      </mat-form-field>
-    </div>
-    <div id="imageContainer" class="container2">
-      <p>Immagine:</p>
-      <input
-        type="file"
-        (change)="onChange($event)"
-        required
-        name="image"
-        [(ngModel)]="this.list.image"
-      />
-    </div>
-    <div class="container2">
-      <mat-form-field>
-        <p>Categoria:</p>
-        <select
-          class="dropdown"
-          matNativeControl
-          [disabled]="disableSelect.value"
-        >
-          <option value=""></option>
-          <option (click)="this.primo()" [(ngModel)]="this.list.categoria">Primo</option>
-          <option (click)="this.secondo()" [(ngModel)]="this.list.categoria">Secondo</option>
-          <option (click)="this.dolce()" [(ngModel)]="this.list.categoria">Dolce</option>
-        </select>
-      </mat-form-field>
-    </div>
-    <div class="container2">
-      <mat-form-field>
-        <p>Ingredienti:</p>
-        <input
-          class="text"
-          type="text"
-          matInput
-          required
-          [(ngModel)]="this.list.ingredienti"
-          name="ingredienti"
-        />
-      </mat-form-field>
-    </div>
+      </div>
+      <div class="container2">
+        <mat-form-field>
+          <p>Categoria:</p>
+          <select
+            class="dropdown"
+            matNativeControl
+            [disabled]="disableSelect.value"
+          >
+            <option value=""></option>
+            <option (click)="this.primo()" [(ngModel)]="this.list.categoria">
+              Primo
+            </option>
+            <option (click)="this.secondo()" [(ngModel)]="this.list.categoria">
+              Secondo
+            </option>
+            <option (click)="this.dolce()" [(ngModel)]="this.list.categoria">
+              Dolce
+            </option>
+          </select>
+        </mat-form-field>
+      </div>
+      <div class="container2">
+        <mat-form-field>
+          <p>Ingredienti:</p>
+          <input
+            class="text"
+            type="text"
+            matInput
+            required
+            [(ngModel)]="this.list.ingredienti"
+            name="ingredienti"
+          />
+        </mat-form-field>
+      </div>
 
-    <div class="container2">
-      <mat-form-field>
-        <p>Quantità Persone:</p>
-        <input
-          class="text"
-          type="text"
-          [(ngModel)]="this.list.quantitaPersone"
-          name="quantitaPersone"
-        />
-        <div class="btn">
-          <button mat-button routerLink="/" color="primary">Back</button>
-          <button (click)="editRicetta()" mat-raised-button color="primary">
-            Modifica Ricetta
-          </button>
-        </div>
-      </mat-form-field>
+      <div class="container2">
+        <mat-form-field>
+          <p>Quantità Persone:</p>
+          <input
+            class="text"
+            type="text"
+            [(ngModel)]="this.list.quantitaPersone"
+            name="quantitaPersone"
+          />
+          <div class="btn">
+            <button mat-button routerLink="/" color="primary">Back</button>
+            <button (click)="editRicetta()" mat-raised-button color="primary">
+              Modifica Ricetta
+            </button>
+          </div>
+        </mat-form-field>
+      </div>
     </div>
   </div>
 </form>
