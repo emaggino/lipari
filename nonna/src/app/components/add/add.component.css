@@ -36,9 +36,16 @@
   }
   
   .btn > button {
-    background-color: lightgrey;
+    background-color: aliceblue;
     border-radius: 10%;
     margin: 10px;
+    color: rgb(64, 101, 133);
+  }
+
+  .btn > button:hover {
+    background: rgba(64, 101, 133, 0.801);;
+    box-shadow: 0 0 20px 5px rgba(64, 101, 133, 0.801);;
+    color: aliceblue;
   }
 
   .dropdown {

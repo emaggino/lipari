@@ -14,7 +14,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  max-width: 1500px;
+  max-width: 100px;
   height: 100%;
 }
 .container2 {
@@ -49,6 +49,7 @@
 }
 
 .cardContainer > ul > li {
+  width: 300px;
   list-style-type: none;
 }
 
@@ -85,6 +86,10 @@
   width: 100px;
   background-color: rgb(64, 101, 133);
   color: aliceblue;
+}
+
+#preferitiBtn{
+  width: 100px;
 }
 
 #editBtn {

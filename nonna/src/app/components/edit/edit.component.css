@@ -19,6 +19,12 @@
     align-items: center;
     flex-direction: column;
   }
+
+  .btn > button:hover{
+    background: rgba(64, 101, 133, 0.801);;
+    box-shadow: 0 0 20px 5px rgb(64, 101, 133);
+    color: aliceblue;
+  }
   
   .container2 {
     width: 400px;
@@ -41,9 +47,10 @@
   }
   
   .btn > button {
-    background-color: lightgrey;
+    background-color: aliceblue;
     border-radius: 10%;
     margin: 10px;
+    color: rgb(64, 101, 133);
   }
 
   .text{

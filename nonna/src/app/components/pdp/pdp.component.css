@@ -74,6 +74,24 @@
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+.btn:hover{
+  background: aliceblue;
+  box-shadow: 0 0 20px 5px rgb(64, 101, 133);
+  color: rgb(64, 101, 133);
+}
+
+#edit:hover{
+  background: aliceblue;
+  box-shadow: 0 0 20px 5px rgba(174, 174, 25, 0.904);
+  color: rgba(174, 174, 25, 0.904);
+}
+
+#delete:hover{
+  background: aliceblue;
+  box-shadow: 0 0 20px 5px  rgba(166, 20, 20, 0.915);
+  color: rgba(166, 20, 20, 0.915);
+}
+
 .btn {
   color: aliceblue;
   background-color: rgba(64, 101, 133, 0.944);
