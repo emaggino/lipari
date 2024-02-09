@@ -88,15 +88,15 @@ export class ListService {
 
   dialogId: any;
 
-  addToFavourites(list: any) {
-    if (this.newList.includes(list)) {
-      alert('gia aggiunto');
-    } else {
-      this.newList.push(list);
-      console.log('preferiti', this.newList);
-      localStorage.setItem('preferiti', list);
-    }
-  }
+  // addToFavourites(list: any) {
+  //   if (this.newList.includes(list)) {
+  //     alert('gia aggiunto');
+  //   } else {
+  //     this.newList.push(list);
+  //     console.log('preferiti', this.newList);
+  //     localStorage.setItem('preferiti', list);
+  //   }
+  // }
 
   aggiungiPreferiti(id: any) {
     const httpOptions = {

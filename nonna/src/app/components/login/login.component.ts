@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { LoginService } from '../../services/login.service';
 import { NgIf } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
-import { login } from '../../interfaces/data';
+//import { login } from '../../interfaces/data';
 
 @Component({
   selector: 'app-login',

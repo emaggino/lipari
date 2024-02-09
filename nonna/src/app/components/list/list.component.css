@@ -86,6 +86,7 @@
 }
 
 .btn:hover{
+  transition: all 0.4s ease-in-out;
   background: aliceblue;
   box-shadow: 0 0 20px 5px rgb(64, 101, 133);
   color: rgb(64, 101, 133);
