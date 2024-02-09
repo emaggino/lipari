@@ -41,42 +41,54 @@ export class LoginComponent implements OnInit {
   isAdmin: any;
 
   onLogin() {
-    this.loginService.login(this.loginObj).subscribe((res) => {
-      if (
-        this.loginObj.username === 'user' &&
-        this.loginObj.password === 'user'
-      ) {
-        this.loginService.isLogged = true;
-        this.route.navigate(['/']);
-        localStorage.setItem('accessToken', res.accessToken)
-        alert('sei loggato come user');
-        localStorage.setItem(
-          'user',
-          this.loginObj.username + this.loginObj.password
-        );
-        //this.isLogged = true;
-        localStorage.setItem('userLogin', 'logged');
-      }
+    if (
+      (this.loginObj.username === 'user' &&
+        this.loginObj.password === 'user') ||
+      (this.loginObj.username === 'admin' && this.loginObj.password === 'admin')
+    ) {
+      this.loginService.login(this.loginObj).subscribe((res) => {
+        if (
+          this.loginObj.username === 'user' &&
+          this.loginObj.password === 'user'
+        ) {
+          this.loginService.isLogged = true;
+          this.route.navigate(['/']);
+          localStorage.setItem('accessToken', res.accessToken);
+          alert('sei loggato come user');
+          localStorage.setItem(
+            'user',
+            this.loginObj.username + this.loginObj.password
+          );
+          //this.isLogged = true;
+          localStorage.setItem('userLogin', 'logged');
+        }
 
-      if (
-        this.loginObj.username === 'admin' &&
-        this.loginObj.password === 'admin'
-      ) {
-        this.loginService.isLogged = true;
-        this.loginService.isAdmin = true;
-        localStorage.setItem('accessToken', res.accessToken);
-        localStorage.setItem(
-          'user',
-          this.loginObj.username + this.loginObj.password
-        );
-        console.log('adminStatus', this.loginService.isAdmin);
-        console.log('loginstatus', this.loginService.isLogged);
+        if (
+          this.loginObj.username === 'admin' &&
+          this.loginObj.password === 'admin'
+        ) {
+          this.loginService.isLogged = true;
+          this.loginService.isAdmin = true;
+          localStorage.setItem('accessToken', res.accessToken);
+          localStorage.setItem(
+            'user',
+            this.loginObj.username + this.loginObj.password
+          );
+          console.log('adminStatus', this.loginService.isAdmin);
+          console.log('loginstatus', this.loginService.isLogged);
 
-        this.route.navigate(['/']);
-        localStorage.setItem('adminLogin', 'logged');
-        alert('sei loggato come admin');
-      }
-    });
+          this.route.navigate(['/']);
+          localStorage.setItem('adminLogin', 'logged');
+          alert('sei loggato come admin');
+        }
+      });
+    } else if((this.loginObj.username === '' &&
+    this.loginObj.password === '') ||
+  (this.loginObj.username === '' && this.loginObj.password === '')){
+      alert('Inserisci le tue credenziali!')
+    }else {
+      alert('Utente non trovato o credenziali non correte!')
+    }
   }
 
   userValue: any;

@@ -18,11 +18,9 @@ export class NavbarComponent implements OnInit {
   } 
 
   ngOnInit(): void {
-    if (localStorage.getItem('user')) {
-      this.service.isAdmin = true;
-    }
     if(localStorage.getItem('userLogin') || localStorage.getItem('adminLogin')){
       this.service.isLogged = true
+      this.service.isAdmin = false
     }
     else if(localStorage.getItem('adminLogin')){
       this.service.isAdmin = true

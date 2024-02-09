@@ -27,7 +27,7 @@
     </button>
     <button
       id="add"
-      *ngIf="isAdmin === true"
+      *ngIf="this.loginService.isAdmin === true"
       routerLink="/add"
       class="btn"
       mat-button
@@ -35,10 +35,6 @@
       Aggiungi Ricetta
     </button>
   </div>
-
-  <ng-container *ngIf="searchList.length; else notFound">
-    <div></div>
-  </ng-container>
 
   <ng-template #notFound></ng-template>
 
@@ -86,7 +82,7 @@
           <!-- <button class="btn" routerLink="/" mat-button>Back</button> -->
           <div class="adminButtonContainer">
             <button
-              *ngIf="isAdmin === true"
+              *ngIf="this.loginService.isAdmin === true"
               id="editBtn"
               routerLink="/edit/{{ item.id }}"
               id="editBtn"
@@ -96,7 +92,7 @@
               Modifica
             </button>
             <button
-              *ngIf="isAdmin === true"
+              *ngIf="this.loginService.isAdmin === true"
               id="deleteBtn"
               class="btn"
               mat-button
