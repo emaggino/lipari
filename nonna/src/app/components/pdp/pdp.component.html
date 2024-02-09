@@ -14,7 +14,7 @@
     <div class="btnContainer">
       <button class="btn" routerLink="/" mat-button>Back</button>
       <button *ngIf="loginService.isAdmin === true" id="edit" class="btn" routerLink="/edit/{{recipeData.id}}" mat-button>Modifica</button>
-      <button *ngIf="loginService.isAdmin === true" (click)="openDialog()" id="delete" class="btn" mat-button>Elimina</button>
+      <button *ngIf="loginService.isAdmin === true" (click)="openDialog(recipeData.id)" id="delete" class="btn" mat-button>Elimina</button>
     </div>
   </div>
 </div>

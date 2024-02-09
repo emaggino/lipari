@@ -116,7 +116,8 @@ export class ListService {
     this.removePreferiti(id).subscribe((res) => {
       console.log(res);
     });
-    window.location.reload();
+    window.location.reload()
+    alert('Ricetta rimossa dai preferiti')
   }
 
   public searchList: any = [];

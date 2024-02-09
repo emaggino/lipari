@@ -44,7 +44,8 @@ export class PdpComponent implements OnInit{
     })
   }
 
-  openDialog() {
+  openDialog(id: any) {
+    this.listService.dialogId = id;
     const dialogRef = this.dialog.open(DeleteDialog2Component, {
       width: '550px',
       height: '200px',
